@@ -44,12 +44,28 @@ input_password.onblur = () =>{
     }
     if(!twoInt()){
         passNotStrong()
+        return
+    }
+
+    if(!twoSymbols()){
+        passNotStrong()
+        return
     }
 }
 
 function twoInt(){
     let pattern = /\d.*\d/
     let result = input_password.value.search(pattern)
+    if(result == -1){
+        return false
+    }else{
+        return true
+    }
+}
+
+function twoSymbols(){
+    pattern = /\W.*\W/
+    result = input_password.value.search(pattern)
     if(result == -1){
         return false
     }else{
