@@ -23,5 +23,23 @@
     height: 450px;
     border: 1px solid black;
     border-radius: 10px;
-    text-align: center;
+    text-align: center; 
+    padding: 20px;
+} 
+ 
+.add-form > h1{ 
+    padding-bottom: 20px; 
+    color: #323246; 
+    font-size: 30px; 
+} 
+
+.add-form > div{
+    display: flex;
+    justify-content: space-between;
+}
+
+.column-direction{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
 }
