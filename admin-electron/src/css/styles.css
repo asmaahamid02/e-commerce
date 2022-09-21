@@ -43,14 +43,17 @@
     border: 1px solid black;
 }
 
-.add-form > div > div:last-child{
-    width: 37%;
-}
-
 .column-direction{
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+}
+
+.add-form > div > div:last-child{
+    width: 37%;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 13px;
 }
 
 .add-form > div > div > div {
@@ -60,8 +63,8 @@
 
 input{
     width: 99%;
-    border-radius: 5px;
-    height: 35px;
+    border-radius: 15px;
+    height: 40px;
     border: 1px solid black;
     padding: 0 10px;
     font-size: 18px;
@@ -69,4 +72,15 @@ input{
 
 span{
     color: #808080;
+}
+
+img{
+    width: 100%;
+}
+
+button{
+    border-radius: 15px;
+    border: 0;
+    padding: 12px 15px;
+    color: white;
 }
