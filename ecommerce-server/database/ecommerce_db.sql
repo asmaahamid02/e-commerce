@@ -37,6 +37,8 @@ CREATE TABLE IF NOT EXISTS `ecommerce_db`.`users` (
   `password` VARCHAR(30) NOT NULL,
   `name` VARCHAR(60) NOT NULL,
   `email` VARCHAR(255) NOT NULL,
+  `profile_picture` VARCHAR(255) NULL,
+  `is_banned` TINYINT NULL,
   `created_at` TIMESTAMP NOT NULL,
   PRIMARY KEY (`id`),
   INDEX `fk_users_user_types1_idx` (`type_id` ASC) VISIBLE,
