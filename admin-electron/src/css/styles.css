@@ -74,7 +74,8 @@ span{
 }
 
 .profile-picture{
-    width: 100%;
+    width: 190px;
+    height: 190px;
     border-radius: 200px;
 }
 
@@ -83,6 +84,7 @@ span{
     border: 0;
     padding: 12px 13px;
     color: white;
+    cursor: pointer;
 }
 
 .green-background{
@@ -94,4 +96,8 @@ span{
     margin-top: 13px;
     background-color: #323246;
     font-size: 23px;
+}
+
+input[type='file']{
+    display: none;
 }

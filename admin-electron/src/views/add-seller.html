@@ -30,12 +30,16 @@
                     </div>
                 </div>
                 <div class="column-direction">
-                    <img class="profile-picture" src="../images/no-profile.svg" alt="">
-                    <button class="buttons green-background">Add profile picture</button>
+                    <img id="image-element" class="profile-picture" src="../images/no-profile.svg" alt="">
+                    <label class="buttons green-background">
+                        Add profile picture
+                        <input type="file" accept=".jpg, .png, .svg" id="image" value="Add profile picture"/>
+                    </label>
                 </div>
             </div>
             <button class="buttons other-background">ADD SELLER</button>
         </div>
     </section>
+    <script src="../javascript/add-seller.js"></script>
 </body>
 </html>
