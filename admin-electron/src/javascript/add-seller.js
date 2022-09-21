@@ -26,3 +26,13 @@ input_username.onblur = () =>{
         username_error.innerText = ''
     }
 }
+
+input_email.onblur = () =>{
+    const pattern = /^\w{3,}@\w{3,}\.\w{2,}$/
+    const result = input_email.value.search(pattern)
+    if(result == -1){
+        email_error.innerText = '*please enter a valid email'
+    }else{
+        email_error.innerText = ''
+    }
+}
