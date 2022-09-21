@@ -1,0 +1,18 @@
+/* CSS reset */
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.background {
+  position: fixed;
+  height: 100vh;
+  width: 70%;
+  top: 0%;
+  right: 0%;
+  background-color: rgba(20, 20, 27, 0.2);
+  z-index: 10;
+}
+
+
