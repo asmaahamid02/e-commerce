@@ -5,12 +5,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://d3js.org/d3.v4.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <title>Document</title>
 </head>
 
 <body>
-    <div class="container">
+    <!-- <div class="container">
         <div class="best-container">
             <div class="best-seller">
                 <div class="best--header">
@@ -19,7 +19,7 @@
                         <option>Weekly</option>
                         <option>Monthly</option>
                         <option>Yearly</option>
-                    </select> -->
+                    </select> 
 
                 </div>
                 <div class="best--body" id="best-seller--body">
@@ -62,7 +62,7 @@
                         <option>Weekly</option>
                         <option>Monthly</option>
                         <option>Yearly</option>
-                    </select> -->
+                    </select> 
 
                 </div>
                 <div class="best--body" id="best-seller--body">
@@ -103,6 +103,37 @@
             <div class="total-sellers"></div>
             <div class="total-products"></div>
             <div class="total-clients"></div>
+        </div>
+    </div> -->
+
+    <div class="container">
+        <div class="best-statistics">
+            <div class="best-user">
+                <div class="best--header">
+                    <h3>Best Seller</h3>
+                    <select class="duration">
+                        <option>Weekly</option>
+                        <option>Monthly</option>
+                        <option>Yearly</option>
+                    </select>
+                </div>
+                <div class="best--body">
+                    <canvas id="seller-chart"></canvas>
+                </div>
+            </div>
+            <div class="best-user">
+                <div class="best--header">
+                    <h3>Best Seller</h3>
+                    <select class="duration">
+                        <option>Weekly</option>
+                        <option>Monthly</option>
+                        <option>Yearly</option>
+                    </select>
+                </div>
+                <div class="best--body">
+                    <canvas id="client-chart"></canvas>
+                </div>
+            </div>
         </div>
     </div>
     <script src="../javascript/statistics.js"></script>
