@@ -38,8 +38,35 @@
     justify-content: space-between;
 }
 
+.add-form > div > div{
+    width: 60%;
+    border: 1px solid black;
+}
+
+.add-form > div > div:last-child{
+    width: 37%;
+}
+
 .column-direction{
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+}
+
+.add-form > div > div > div {
+    margin-bottom: 13px;
+    width: 100%;
+}
+
+input{
+    width: 99%;
+    border-radius: 5px;
+    height: 35px;
+    border: 1px solid black;
+    padding: 0 10px;
+    font-size: 18px;
+}
+
+span{
+    color: #808080;
 }
