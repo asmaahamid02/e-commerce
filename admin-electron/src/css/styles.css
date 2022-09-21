@@ -1,0 +1,107 @@
+/* CSS reset */
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.background {
+  position: fixed;
+  height: 100vh;
+  width: calc(100% - 250px);
+  top: 0%;
+  left: 250px;
+  background-color: rgba(20, 20, 27, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.add-form{
+    background-color: white;
+    width: 550px;
+    min-height: 450px;
+    border: 1px solid black;
+    border-radius: 10px;
+    text-align: center; 
+    padding: 20px;
+} 
+ 
+.add-form > h1{ 
+    padding-bottom: 20px; 
+    color: #323246; 
+    font-size: 30px; 
+} 
+
+.add-form > div{
+    display: flex;
+    justify-content: space-between;
+}
+
+.add-form > div > div{
+    width: 60%;
+}
+
+.column-direction{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.add-form > div > div:last-child{
+    width: 37%;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 13px;
+}
+
+.add-form > div > div > div {
+    margin-bottom: 13px;
+    width: 100%;
+}
+
+input{
+    width: 99%;
+    border-radius: 15px;
+    height: 40px;
+    border: 1px solid black;
+    padding: 0 10px;
+    font-size: 18px;
+}
+
+span{
+    color: #808080;
+}
+
+.profile-picture{
+    width: 190px;
+    height: 190px;
+    border-radius: 200px;
+}
+
+.buttons{
+    border-radius: 15px;
+    border: 0;
+    padding: 12px 13px;
+    color: white;
+    cursor: pointer;
+}
+
+.green-background{
+    background-color: #64C5B1;
+    font-size: 15px;
+}
+
+.other-background{
+    margin-top: 13px;
+    background-color: #323246;
+    font-size: 23px;
+}
+
+input[type='file']{
+    display: none;
+}
+
+.error{
+    color: red;
+}
