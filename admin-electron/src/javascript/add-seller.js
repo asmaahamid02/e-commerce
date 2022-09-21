@@ -36,3 +36,27 @@ input_email.onblur = () =>{
         email_error.innerText = ''
     }
 }
+
+input_password.onblur = () =>{
+    if (input_password.value.length < 12){
+        passNotStrong()
+        return
+    }
+    if(!twoInt()){
+        passNotStrong()
+    }
+}
+
+function twoInt(){
+    let pattern = /\d.*\d/
+    let result = input_password.value.search(pattern)
+    if(result == -1){
+        return false
+    }else{
+        return true
+    }
+}
+
+function passNotStrong(){
+    password_error.innerText = '*password is not strong enough'
+}
