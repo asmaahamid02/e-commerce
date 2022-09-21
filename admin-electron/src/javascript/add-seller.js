@@ -51,6 +51,18 @@ input_password.onblur = () =>{
         passNotStrong()
         return
     }
+
+    if(!twoUpper()){
+        passNotStrong()
+        return
+    }
+
+    if(!twoLower()){
+        passNotStrong()
+        return
+    }
+
+    password_error.innerText = ''
 }
 
 function twoInt(){
@@ -73,6 +85,31 @@ function twoSymbols(){
     }
 }
 
+function twoLower(){
+    pattern = /[a-z].*[a-z]/
+    result = input_password.value.search(pattern)
+    if(result == -1){
+        passNotStrong()
+        return 
+    }else{
+        password_error.innerText = ''
+    }
+}
+
+function twoUpper(){
+    pattern = /[A-Z].*[A-Z]/
+    result = input_password.value.search(pattern)
+    if(result == -1){
+        passNotStrong()
+        return 
+    }else{
+        password_error.innerText = ''
+    }
+}
+
 function passNotStrong(){
     password_error.innerText = '*password is not strong enough'
 }
+
+
+    
