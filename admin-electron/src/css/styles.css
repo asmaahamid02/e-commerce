@@ -8,9 +8,9 @@
 .background {
   position: fixed;
   height: 100vh;
-  width: 80%;
+  width: calc(100% - 250px);
   top: 0%;
-  right: 0%;
+  left: 250px;
   background-color: rgba(20, 20, 27, 0.2);
   display: flex;
   align-items: center;
@@ -40,7 +40,6 @@
 
 .add-form > div > div{
     width: 60%;
-    border: 1px solid black;
 }
 
 .column-direction{
@@ -74,13 +73,25 @@ span{
     color: #808080;
 }
 
-img{
+.profile-picture{
     width: 100%;
+    border-radius: 200px;
 }
 
-button{
+.buttons{
     border-radius: 15px;
     border: 0;
-    padding: 12px 15px;
+    padding: 12px 13px;
     color: white;
+}
+
+.green-background{
+    background-color: #64C5B1;
+    font-size: 15px;
+}
+
+.other-background{
+    margin-top: 13px;
+    background-color: #323246;
+    font-size: 23px;
 }
