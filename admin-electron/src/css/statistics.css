@@ -129,6 +129,7 @@ body {
   height: 100%;
   border-radius: 50%;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   color: #fff;
@@ -157,4 +158,12 @@ body {
     rgba(100, 197, 177, 1) 0%,
     rgba(50, 50, 70, 1) 90%
   );
+}
+
+.total-icon {
+  width: 36px;
+  height: 36px;
+  margin-bottom: 10px;
+  filter: invert(100%) sepia(0%) saturate(7500%) hue-rotate(140deg)
+    brightness(101%) contrast(99%);
 }
