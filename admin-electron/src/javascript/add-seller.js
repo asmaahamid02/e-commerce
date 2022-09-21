@@ -5,6 +5,9 @@ const input_email = document.getElementById('email-input')
 const email_error = document.getElementById('email-error')
 const input_password = document.getElementById('password-input')
 const password_error = document.getElementById('password-error')
+const input_name = document.getElementById('name-input')
+const name_error = document.getElementById('name-error')
+
 
 input_image.onchange = function() {
     const reader = new FileReader()
@@ -65,6 +68,16 @@ input_password.onblur = () =>{
     password_error.innerText = ''
 }
 
+input_name.onblur = () => {
+    const pattern = /\w{2,}/
+    result = input_name.value.search(pattern)
+    if(result == -1){
+        name_error.innerText = '*name should be at least 2 characters'
+    }else{
+        name_error.innerText = ''
+    }
+}
+
 function twoInt(){
     let pattern = /\d.*\d/
     let result = input_password.value.search(pattern)
@@ -109,7 +122,4 @@ function twoUpper(){
 
 function passNotStrong(){
     password_error.innerText = '*password is not strong enough'
-}
-
-
-    
+} 
