@@ -96,6 +96,7 @@ span{
     margin-top: 13px;
     background-color: #323246;
     font-size: 23px;
+    padding: 12px 16px;
 }
 
 input[type='file']{
