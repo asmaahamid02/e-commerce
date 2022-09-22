@@ -15,41 +15,27 @@ const addDiscount =document.getElementById("add-dis-btn")
 
 categories.addEventListener("click",(event)=>{
     event.preventDefault();
-    console.log("hi")
-    window.location.href("categories.html")
+    window.location.href= '../seller-frontend/categories.html'
 })
 
 products.addEventListener("click",(event)=>{
     event.preventDefault();
-    window.location.href("products.html")
-    console.log("hi")
+    window.location.href= '../seller-frontend/products.html'
 })
 
 discounts.addEventListener("click",(event)=>{
     event.preventDefault();
-    window.location.href("discounts.html")
-    console.log("hi")
+    window.location.href= '../seller-frontend/discounts-table.html'
 })
 
 addDiscount.addEventListener("click",(event)=>{
-    event.preventDefault();
-    window.location.href("../seller-frontend/discount-pop.html")
-    console.log("hi")
+    event.preventDefault()
+    window.location.href= '../seller-frontend/discount-popup.html'
 })
 
 statistics.addEventListener("click",(event)=>{
     event.preventDefault();
-    window.location.href("statistics.html")
-    console.log("hi")
+    window.location.href= '../seller-frontend/statistics.html'
 })
 
-addBtn.addEventListener("click", (event)=>{
-    event.preventDefault();
-    if(discode.value=="" || dispercentage.value==""){
-        warning.innerText="Please fill the requirments"
-        warning.style.color="red"
-    }else{
-        warning.innerText=""
-        disModal.style.display="none"
-    }
-})
+ 
