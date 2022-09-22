@@ -12,7 +12,6 @@ const name_error = document.getElementById('name-error')
 input_image.onchange = function() {
     const reader = new FileReader()
     reader.onload = () => {
-        console.log('inside function')
         const image = reader.result
         document.getElementById('image-element').src = image
     }

@@ -23,6 +23,6 @@ tableUsername.addEventListener("click",()=>{
 add_button.addEventListener("click", () =>{
     popup_element.style.visibility = "visible"
     popup_element.querySelector(".other-background").innerText = "ADD SELLER"
-    popup_element.querySelector(".green-background").innerText = "Add profile picture"
+    popup_element.querySelector(".green-background").innerHTML = "Add profile picture <input type='file' accept='.jpg, .png, .svg' id='image'/>"
 })
 

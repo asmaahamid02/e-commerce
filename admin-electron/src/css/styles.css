@@ -27,6 +27,7 @@
     text-align: center; 
     padding: 20px;
     align-self: center;
+    position: relative;
 } 
  
 .add-form > h1{ 
