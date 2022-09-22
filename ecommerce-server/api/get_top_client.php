@@ -11,18 +11,20 @@ $weekly_sql = "SELECT main.client_id, main.username,main.name,main.max_total,tot
     select 
     client_id, username, name,sum(total - if(percentage is null or percentage = 0,0, (total*percentage/100))) as max_total
     from users
+    inner join user_types on user_types.id = users.type_id
     inner join carts on users.id = carts.client_id
     left join discounts on discounts.id = carts.discount_id
-    where Week(carts.purchased_at) = week(now())
+    where Week(carts.purchased_at) = week(now()) and type = 'client'
     group by client_id
     )qry) main
     inner join (
     select  client_id,dayname(carts.purchased_at) as date_title
     , sum(total - if(percentage is null or percentage = 0,0, (total*percentage/100))) as total
     from users
+    inner join user_types on user_types.id = users.type_id
     inner join carts on users.id = carts.client_id
     left join discounts on discounts.id = carts.discount_id
-    where Week(carts.purchased_at) = week(now())
+    where Week(carts.purchased_at) = week(now()) and type = 'client'
     group by  date_title, client_id
     ) as total_qry on total_qry.client_id = main.client_id";
 
@@ -32,18 +34,20 @@ $monthly_sql = "SELECT main.client_id, main.username,main.name,main.max_total,to
     select 
     client_id, username, name,sum(total - if(percentage is null or percentage = 0,0, (total*percentage/100))) as max_total
     from users
+    inner join user_types on user_types.id = users.type_id
     inner join carts on users.id = carts.client_id
     left join discounts on discounts.id = carts.discount_id
-    where month(carts.purchased_at) = month(now())
+    where month(carts.purchased_at) = month(now()) and type = 'client'
     group by client_id
     )qry) main
     inner join (
     select  client_id,concat('Week', floor((day(purchased_at)-1)/7)+1) as date_title
     , sum(total - if(percentage is null or percentage = 0,0, (total*percentage/100))) as total
     from users
+    inner join user_types on user_types.id = users.type_id
     inner join carts on users.id = carts.client_id
     left join discounts on discounts.id = carts.discount_id
-    where month(carts.purchased_at) = month(now())
+    where month(carts.purchased_at) = month(now()) and type = 'client'
     group by  date_title, client_id
     ) as total_qry on total_qry.client_id = main.client_id";
 
@@ -53,18 +57,20 @@ $yearly_sql = "SELECT main.client_id, main.username,main.name,main.max_total,tot
     select 
     client_id, username, name,sum(total - if(percentage is null or percentage = 0,0, (total*percentage/100))) as max_total
     from users
+    inner join user_types on user_types.id = users.type_id
     inner join carts on users.id = carts.client_id
     left join discounts on discounts.id = carts.discount_id
-    where year(carts.purchased_at) = year(now())
+    where year(carts.purchased_at) = year(now()) and type = 'client'
     group by client_id
     )qry) main
     inner join (
     select  client_id,monthname(purchased_at) as date_title
     , sum(total - if(percentage is null or percentage = 0,0, (total*percentage/100))) as total
     from users
+    inner join user_types on user_types.id = users.type_id
     inner join carts on users.id = carts.client_id
     left join discounts on discounts.id = carts.discount_id
-    where year(carts.purchased_at) = year(now())
+    where year(carts.purchased_at) = year(now()) and type = 'client'
     group by  date_title, client_id
     ) as total_qry on total_qry.client_id = main.client_id";
 
