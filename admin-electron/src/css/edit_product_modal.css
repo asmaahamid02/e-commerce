@@ -1,0 +1,14 @@
+/* #64C5B1 : green
+#323246: dark back */
+
+.edit_product_modal_btn{
+    padding: 15px;
+    background: rgba(0, 0, 0,0);
+    border-color: #64C5B1;
+    border-radius:10px ;
+    font-size: 20px;
+    color: #64C5B1;
+    cursor: pointer;
+}
+
+
