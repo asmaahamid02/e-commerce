@@ -8,9 +8,9 @@
 .background {
   position: fixed;
   height: 100vh;
-  width: calc(100% - 250px);
-  top: 0%;
-  left: 250px;
+  width: 100%;
+  top: 0;
+  left: 0;
   background-color: rgba(20, 20, 27, 0.2);
   display: flex;
   align-items: center;
