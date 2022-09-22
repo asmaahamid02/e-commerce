@@ -83,6 +83,10 @@ body {
   color: #64c5b1;
 }
 
+.hide {
+  display: none;
+}
+
 .input-container {
   position: relative;
   height: 55px;
