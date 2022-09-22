@@ -1,0 +1,16 @@
+/* CSS reset */
+*{
+    margin: 0;
+    padding: 0;
+  }
+  i{
+    cursor: pointer;
+  }
+  img{
+    height: 30px;
+    width: 30px;
+    border-radius:50px ;
+  }
+  body{
+    display: flex;
+  }
