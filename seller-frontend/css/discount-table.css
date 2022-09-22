@@ -89,3 +89,16 @@
 .add-dis button:active{
   scale: 0.9;
 }
+/* tabel section */
+table{
+  width: 100%;
+}
+table tr:first-child{
+  color: white;
+  background-color: #64C5B1;
+}
+td{
+  text-align: center ;
+  background-color: #F2F2F2;
+  color: black;
+}
