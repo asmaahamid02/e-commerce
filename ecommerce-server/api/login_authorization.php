@@ -12,13 +12,20 @@ use \Firebase\JWT\JWT;
 require_once('./vendor/autoload.php');
 
 
-if (isset($_POST["username"], $_POST["password"])) {
-    $username = $_POST['username'];
+if (isset($_POST["user_indentifier"], $_POST["password"])) {
+    $user_indentifier = $_POST['user_indentifier'];
     $password = $_POST['password'];
 
     $hashedpass = hash('sha256', $password.'team1');
-    $query = $connection->prepare("SELECT users.id, users.email FROM users WHERE username=? and password=?");
-    $query->bind_param('ss',$username,$hashedpass);
+
+    $query = $connection->prepare(
+        "
+        SELECT users.id, users.email, users.username 
+        FROM users 
+        WHERE (username=? OR email=?) AND password=? ");
+
+    // $query->bind_param('ss',$username,$hashedpass);
+    $query->bind_param('sss',$user_indentifier,$user_indentifier,$hashedpass);
     $query->execute();
     $array = $query->get_result();
 
@@ -29,8 +36,10 @@ if (isset($_POST["username"], $_POST["password"])) {
 
 
     if($hasValidCredentials  == []){
-        $hasValidCredentials ["success"] = false;
-        echo json_encode($hasValidCredentials);
+        echo json_encode(array(
+            "error" => true,
+            "msg" => "user does not have valid credentials",
+        ));
     }
     else{
         //Generate the jwt token
@@ -43,7 +52,7 @@ if (isset($_POST["username"], $_POST["password"])) {
         $aud= "admin"; //targeted audience are the admins
         $user_arr_data = array(
             "id" => $hasValidCredentials[0]['id'],
-            "username" => $username,
+            "username"=>$hasValidCredentials[0]['username'],
             "email" => $hasValidCredentials[0]['email']
         );
 
@@ -63,11 +72,18 @@ if (isset($_POST["username"], $_POST["password"])) {
 
         echo json_encode(array(
             "user_id" => $user_arr_data['id'],
-            "user_username" => $username,
+            "username" => $user_arr_data['username'],
+            "email" => $user_arr_data['email'],
             "user_jwt" => $jwt,
         ));
     }
 
     
+}
+else{
+    echo json_encode(array(
+        "error" => true,
+        "msg" => "empty fields",
+    ));
 }
 ?>
