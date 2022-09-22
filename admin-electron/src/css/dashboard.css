@@ -91,7 +91,7 @@ body {
   z-index: -10;
 }
 
-.frame {
+#frame {
   width: 100%;
   height: calc(100vh - 75px);
 }

@@ -1,17 +1,20 @@
 const dashboard = document.getElementById("dashboard")
 const customers = document.getElementById("customers")
 const sellers = document.getElementById("sellers")
-const username =document.getElementById(username)
+const iframe = document.getElementById("frame")
+const username = document.getElementById("username")
+const title = document.getElementById("nav-title")
+
 
 dashboard.addEventListener("click",()=>{
-window.location.replace('dashboard.html')
+    iframe.src = "statistics.html"
+    title.innerText = "Statistics"
 })
 customers.addEventListener("click",()=>{
-    window.location.replace('clients_lists.html')
+    iframe.src = "clients_list.html"
+    title.innerText = "Customers"
 })
 sellers.addEventListener("click",()=>{
-    window.location.replace('sellers_lists.html')
-})
-sellers.addEventListener("click",()=>{
-    window.location.replace('profile.html')
+    iframe.src = "seller_list.html"
+    title.innerText = "Sellers"
 })
