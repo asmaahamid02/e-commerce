@@ -12,12 +12,12 @@ const discounts= document.getElementById("discounts")
 const statistics= document.getElementById("stats")
 const addDiscount =document.getElementById("add-dis-btn")
 
+
 window.onclick = function(event) {
     if (event.target ==discountForm ) {
         discountForm.style.display = "none"
     }
 }
-
 categories.addEventListener("click",(event)=>{
     event.preventDefault();
     window.location.href= '../seller-frontend/categories.html'
