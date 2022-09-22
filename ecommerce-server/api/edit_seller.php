@@ -57,7 +57,7 @@ if (
     $response = $common->getRepsonse(0, null, 'User not found!');
   }
 } else {
-  $response = $common->getRepsonse(0, null, 'No data submitted');
+  $response = $common->getRepsonse(0, null, 'Not enough data submitted');
 }
 
 echo json_encode($response);

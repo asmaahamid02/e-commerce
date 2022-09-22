@@ -59,7 +59,7 @@ if (
         }
     }
 } else {
-    $response = $response = $common->getRepsonse(0, null, 'No data submitted');
+    $response = $response = $common->getRepsonse(0, null, 'Not enough data submitted');
 }
 
 echo json_encode($response);
