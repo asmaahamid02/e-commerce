@@ -77,7 +77,6 @@
   /* body section */
   .body-part{
     flex-grow: 1;
-    padding-left:210px;
   } 
   .top-bar{
     padding: 15px; 
@@ -90,6 +89,7 @@
   }
   /* tabel section */
   table{
+    margin-top: 30px;
     width: 100%;
   }
   table tr:first-child{
