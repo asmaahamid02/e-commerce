@@ -9,12 +9,13 @@
   position: fixed;
   height: 100vh;
   width: calc(100% - 250px);
-  top: 0%;
+  top: 0;
   left: 250px;
   background-color: rgba(20, 20, 27, 0.2);
   display: flex;
   align-items: center;
   justify-content: center;
+  visibility: hidden;
 }
 
 .add-form{
@@ -25,6 +26,8 @@
     border-radius: 10px;
     text-align: center; 
     padding: 20px;
+    align-self: center;
+    position: relative;
 } 
  
 .add-form > h1{ 
