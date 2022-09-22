@@ -153,3 +153,5 @@ if (isset($_POST['interval'])) {
 }
 
 echo json_encode($response);
+
+$connection->close();
