@@ -6,28 +6,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Discount Table</title>
     <link rel="stylesheet" href="../seller-frontend/css/discount-table.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
     <!-- start of dashboard menu -->
     <section class="sidebar">
         <div class="profile">
-            <img src="../images/profile-svgrepo-com.svg" alt="">
+            <img src="../admin-electron/src/images/profile-svgrepo-com.svg" alt="">
             <div>
                 <p>Name</p>
                 <a>Username</a>
             </div>
         </div>
         <div class="sidebar-btn">
-            <button>Categories</button>
+            <button id="categories">Categories</button>
         </div>
         <div class="sidebar-btn">
-            <button>Products</button>
+            <button id="products">Products</button>
         </div>
         <div class="sidebar-btn">
-            <button>Discounts</button>
+            <button id="discounts">Discounts</button>
         </div>
         <div class="sidebar-btn">
-            <button>Statistics</button>
+            <button id="stats">Statistics</button>
         </div>
 </section>
 <!--end of dashboard menu -->
@@ -41,7 +42,7 @@
     <!-- start of content -->
     <div class="content">
         <div class="add-dis">
-            <button><span><i class="fa fa-plus"></i></span>Add discount code</button>
+            <button id="add-dis-btn"><span><i class="fa fa-plus"></i></span>  Add discount code</button>
         </div>
         <div>
             <table>
@@ -61,5 +62,6 @@
     <!-- end of content -->
 </section>
 <!-- end of content section -->
+<script src="../seller-frontend/javascript/discount.js"></script>
 </body>
 </html>
