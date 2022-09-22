@@ -1,0 +1,100 @@
+/* #64C5B1 : green
+#323246: dark back */
+
+.edit_product_modal_btn {
+    padding: 15px;
+    background: rgba(0, 0, 0, 0);
+    border-color: #64C5B1;
+    border-radius: 10px;
+    font-size: 20px;
+    color: #64C5B1;
+    cursor: pointer;
+}
+
+.modal-bg {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s, opacity 0.5s;
+}
+
+.bg-active {
+    visibility: visible;
+    opacity: 1;
+}
+
+.modal {
+    border: 2px solid red;
+    background-color: white;
+    width: 50%;
+    height: 70%;
+    display: flex;
+    /* justify-content: space-around; */
+    /* align-items: center; */
+    /* flex-direction: column; */
+    border-radius: 20px;
+}
+
+.modal-close {
+    cursor: pointer;
+    margin-left: 10px;
+    
+}
+
+.product-img {
+    border: 2px solid green;
+    width: 50%;
+    height: 100%;
+
+}
+
+.input-fields {
+    border: 2px solid blue;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    padding-left: 5%;
+    padding-right: 5%;
+    padding-bottom: 5%;
+}
+
+.input-fields input, select {
+    height: 7%;
+}
+
+label {
+    margin-top: 15px;
+    color: gray;
+    font-size:20px;
+}
+
+input,textarea,select{
+    border-radius: 10px;
+}
+
+textarea{
+    height:20%;
+}
+.edit_product_modal_save_btn{
+
+    height:6vh;
+    width:80%;
+    background-color: #64C5B1;
+    font-size: 20px;
+    color: white;
+    font-weight: 700;
+    margin: 0 auto;
+    margin-top: 20px;
+    border-radius: 15px;
+    border: none;
+    cursor: pointer;
+}
