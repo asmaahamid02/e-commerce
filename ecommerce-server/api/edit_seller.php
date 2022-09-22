@@ -23,26 +23,21 @@ if (isset($_POST['id'])) {
      echo $profile_picture;
      //echo $created_at;
     
-      $edit_seller_sql= "UPDATE users SET `username`=?,`password`=?,`name` = ?,`email`=?,`created_at`=now() WHERE `id` = ?";
+      $edit_seller_sql= "UPDATE users SET `username`=?,`password`=?,`name` = ?,`email`=?,`profile_picture`=?,`created_at`=now() WHERE `id` = ?";
       $edit_seller_stmt = $connection->prepare($edit_seller_sql);
-      if($edit_seller_stmt){
-        echo"true";
+      if($edit_seller_stmt->execute()){
+      $response["success"] = true;
+      echo json_encode($response);
       }
-      else{echo "false";}
-      $edit_seller_stmt->bind_param('ssssi', $username,$password,$name,$email,$id);
+     else{
+       $response["success"] = false;
+       echo json_encode($response);
+       }
+      $edit_seller_stmt->bind_param('sssssi', $username,$password,$name,$email,$profile_picture,$id);
       $edit_seller_stmt->execute();
       $edit_seller_stmt->close();
 
 
-     // $edit_seller_sql="UPDATE seller SET `profile_picture`=$profile_picture WHERE `user_id`=$id";
-      $edit_seller_stmt = $connection->prepare("UPDATE seller SET `profile_picture`=? WHERE `user_id`=?");
-      $edit_seller_stmt->bind_param('si',$profile_picture,$id);
-          if($edit_seller_stmt){
-        echo"true";
-      }
-      else{echo "false";}
-     $edit_seller_stmt->execute();
-    
- //send the  the informations back?
+
 }
 ?>
