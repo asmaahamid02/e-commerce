@@ -1,10 +1,12 @@
 <?php
 include_once "connection.php";
-
+include_once "common.php";
 
 header('Access-Control-Allow-Origin: *');
 header('Access-Control-Allow-Methods: POST, GET, OPTIONS, PUT, DELETE');
 header('Access-Control-Allow-Headers: Origin, Content-Type, Accept, Authorization, X-Request-With');
+
+$common = new Common();
 
 $weekly_sql = "SELECT main.client_id, main.username,main.name,main.max_total,total_qry.total ,total_qry.date_title  from
     (select client_id, username, name,  max(max_total) max_total from (
@@ -105,34 +107,20 @@ if (isset($_POST['interval'])) {
                 $data[] = $row;
             }
 
-            $response = [
-                'status' => 1,
-                'data' => $data,
-                'message' => 'Data returned successfully'
-            ];
+            $response = $common->getRepsonse(1, $data, 'Data returned successfully');
         } else {
             //no data
-            $response = [
-                'status' => 1,
-                'data' =>  null,
-                'message' => 'No data found'
-            ];
+            $response = $common->getRepsonse(1, null, 'Not enough data found');
         }
     } else {
         //error 
-        $response = [
-            'status' => 0,
-            'data' =>  null,
-            'message' => 'Something went wrong, try again'
-        ];
+        $response = $common->getRepsonse(0, null, 'Something went wrong, try again');
     }
     $stmt->close();
 } else {
-    $response = [
-        'status' => 0,
-        'data' =>  null,
-        'message' => 'No data submitted'
-    ];
+    $response = $common->getRepsonse(0, null, 'No data submitted');
 }
 
 echo json_encode($response);
+
+$connection->close();
