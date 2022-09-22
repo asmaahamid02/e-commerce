@@ -24,7 +24,6 @@ if (isset($_POST["user_indentifier"], $_POST["password"])) {
         FROM users 
         WHERE (username=? OR email=?) AND password=? ");
 
-    // $query->bind_param('ss',$username,$hashedpass);
     $query->bind_param('sss',$user_indentifier,$user_indentifier,$hashedpass);
     $query->execute();
     $array = $query->get_result();
