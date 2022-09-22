@@ -6,11 +6,10 @@ header('Access-Control-Allow-Origin: *');
 header('Access-Control-Allow-Methods: GET, POST, PUT, DELETE');
 header('Access-Control-Allow-Headers: X-Requested-With');
 header('Content-Type: application/json');
-
+$common = new Common();
 if (
   isset($_POST["id"], $_POST["name"], $_POST["username"], $_POST["email"], $_POST["password"])
 ) {
-  $common = new Common();
   $id = $_POST["id"];
   $name = $_POST["name"];
   $username = $_POST["username"];

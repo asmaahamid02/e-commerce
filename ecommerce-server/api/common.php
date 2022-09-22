@@ -93,4 +93,17 @@ class Common
         $connection->close();
         return $result->fetch_assoc()['type'];
     }
+
+    public function getUserTypeID($type)
+    {
+        require("connection.php");
+        $sql = "SELECT id from user_types where type = ?";
+        $stmt = $connection->prepare($sql);
+        $stmt->bind_param('s', $type);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $stmt->close();
+        $connection->close();
+        return $result->fetch_assoc()['id'];
+    }
 }

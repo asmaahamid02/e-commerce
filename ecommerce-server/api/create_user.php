@@ -1,12 +1,11 @@
 <?php
 include('connection.php');
-include_once "convert_file.php";
-
+include_once "common.php";
 header('Access-Control-Allow-Origin: *');
 header('Access-Control-Allow-Methods: GET, POST, PUT, DELETE');
 header('Access-Control-Allow-Headers: X-Requested-With');
 header('Content-Type: application/json');
-
+$common = new Common();
 if (
     isset($_POST["name"], $_POST["username"], $_POST["email"], $_POST["password"], $_POST["type"])
 ) {
@@ -22,40 +21,24 @@ if (
     $hashed_password = hash('sha256', $_POST['password']) . 'team1';
 
     //check if username or email exist
-    $sql = "SELECT id from users where username = ? or email = ?";
-    $stmt = $connection->prepare($sql);
-    $stmt->bind_param('ss', $username, $email);
-    $stmt->execute();
-    $result = $stmt->get_result();
-    $stmt->close();
 
-    if ($result->num_rows > 0) {
-        $response = [
-            'status' => 0,
-            'data' => null,
-            'message' => 'Username/Email already existed!'
-        ];
+    if ($common->emailAndUsernameExist($username, $email)) {
+        $response = $common->getRepsonse(0, null, 'Username/Email already existed!');
     } else {
-        $seller_images_path = '../../admin-electron/src/images/sellers-profiles/';
-        $client_images_path = '../../client-fronend/assets/images/profiles/';
+        $seller_images_path = $commom->getSellerPath();
+        $client_images_path = $commom->getClientPath();
 
         $image_name = '';
         $base64String = '';
         if ($profile_picture != '') {
-            $coded_image = convertToBase64($profile_picture);
+            $coded_image = $commom->convertToBase64($profile_picture);
             $image_name = $coded_image['file_name'];
             $base64String = $coded_image['base64string'];
         }
 
         /*get type id of user */
-        $sql = "SELECT id FROM user_types WHERE type= ?";
-        $stmt = $connection->prepare($sql);
-        $stmt->bind_param('s', $type);
-        $stmt->execute();
-        $result = $stmt->get_result();
-        $row = $result->fetch_assoc();
-        $type_id = $row['id'];
-        $stmt->close();
+        $type_id = $commom->getUserTypeID($type);
+
 
         $sql = 'INSERT INTO users(type_id,name,username,email,password,profile_picture,is_banned,is_deleted,created_at) 
                VALUES (?,?,?,?,?,?,?,?,?)';
@@ -70,25 +53,13 @@ if (
             } else if ($type == 'client' && !empty($image_name)) {
                 file_put_contents($client_images_path . $image_name, $base64String); //add image to the folder
             }
-            $response = [
-                'status' => 1,
-                'data' => null,
-                'message' => 'Account Created Successfully'
-            ];
+            $response = $response = $common->getRepsonse(1, null, 'Account Created Successfully');
         } else {
-            $response = [
-                'status' => 0,
-                'data' => null,
-                'message' => 'Could not add the user, Try again!'
-            ];
+            $response = $response = $common->getRepsonse(0, null, 'Could not add the user, Try again!');
         }
     }
 } else {
-    $response = [
-        'status' => 0,
-        'data' =>  null,
-        'message' => 'No data submitted'
-    ];
+    $response = $response = $common->getRepsonse(0, null, 'No data submitted');
 }
 
 echo json_encode($response);
