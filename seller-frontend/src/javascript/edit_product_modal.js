@@ -1,4 +1,4 @@
-console.log("working?");
+//To open and close the edit_product_modal
 
 const modalBtn = document.querySelector('.edit_product_modal_btn');
 const modalBg = document.querySelector('.modal-bg');
