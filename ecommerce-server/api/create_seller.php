@@ -20,29 +20,25 @@ if(isset($_POST["name"]) &&isset($_POST["username"])  &&isset($_POST["email"])
    $array=$user_type->get_result();
    $var=$array->fetch_assoc();
    echo $var["id"];
-   /* */ 
-   $query1 = $connection->prepare("INSERT INTO users(type_id,username,password,name,email ,created_at) VALUES (?,?,?,?,?,?)");
-   $query1->bind_param('isssss',$var["id"],$username,$password,$name,$email ,$created_at);
+   /** */ 
+   $query1 = $connection->prepare("INSERT INTO users(type_id,username,password,name,email ,profile_picture,created_at) VALUES (?,?,?,?,?,?,?)");
+   $query1->bind_param('issssss',$var["id"],$username,$password,$name,$email,$profile_picture ,$created_at);
    $new_seller_id = $query1->insert_id;
    $query1->execute();
-   $response = [];
+    $response = [];
+   if($query1->execute()){
    $response["success"] = true;
    echo json_encode($response);
+   }
+   else{
+    $response["success"] = false;
+   echo json_encode($response);
+   }
+ 
+
    /*get the last added id to put it as a foring key to the other table */
    $new_profile_id = $query1->insert_id;
 
-   /*add the image with id of the user on the seller table */
-   $query1 = $connection->prepare("INSERT INTO seller(user_id,profile_picture) VALUES (?,?)");
-   $query1->bind_param('is', $new_profile_id,$profile_picture);
-   $query1->execute();
-   $response = [];
-   $response["success"] = true;
-   echo json_encode($response);
-
-//   $profile_path = '';
-//     if ($profile != '') {
-//         $profile_img_data = convertToBase64($profile, '../../iamges', 'assets/images');
-//         $profile_path = $profile_img_data['ecommerce_db'];
 
 }
 ?>
