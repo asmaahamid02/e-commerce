@@ -12,6 +12,7 @@ console.log(input_fields)
 // adding event listeners for all edit icons of all table rows 
 for(const i of edit_icons){
     i.addEventListener("click", () => {
+        const status_message = parent.document.querySelector(".status-message")
         if(status_message){
             status_message.remove()
         }
