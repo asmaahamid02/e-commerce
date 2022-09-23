@@ -6,12 +6,10 @@ function addRow(name, username, profile_picture, is_banned){
     row.appendChild(attribute)
 
     // adding username to the second table data
-    attribute = document.createElement("td")
     attribute.textContent = "@" + username
     row.appendChild(attribute)
 
     // adding profile picture if it exisits
-    attribute = document.createElement("td")
     const profile = document.createElement("img")
     if(profile_picture){
         profile.src = profile_picture
