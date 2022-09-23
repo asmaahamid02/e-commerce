@@ -17,14 +17,19 @@ if (
     $sql='INSERT INTO discounts(seller_id, code, percentage) VALUES(?,?,?)';
 
     $stmt = $connection->prepare($sql);
-    $stmt->bind_param('i,s,d', $seller_id, $code, $percentage);
+    $stmt->bind_param('isi', $seller_id, $code, $percentage);
+    $stmt->execute() or die($connection->error);
 
- }//else {
+    // echo json_encode($stmt);
+    $response = [];
+    $response["success"] = true;
+
+    echo json_encode($response);
+
+}
+//else {
 //     $response  = $common->getRepsonse('Not enough data submitted');
 // }
-
-
-
 
 
 ?>
