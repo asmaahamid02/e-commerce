@@ -22,15 +22,21 @@ confPopupBtn.addEventListener('click', function () {
 
 //When the cancel button of the popup is clicked
 cancelPopupBtn.addEventListener('click', function () {
+
     popUpBg.classList.remove('bg-active');
 })
 
 //When the Save button is clicked
 confirmPopupBtn.addEventListener('click', function () {
     successMsg();
-    cancelPopupBtn.innerHTML='Close';
 
+    //Two options to close the popup, close button, or timeout where it'll disappear on its own after 3 sec (choose whichever you want)
+    cancelPopupBtn.innerHTML='Close';
+    setTimeout(function(){  popUpBg.classList.remove('bg-active'); }, 3000);
+        
 })
+
+
 
 
 

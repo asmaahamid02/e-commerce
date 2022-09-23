@@ -135,3 +135,7 @@
     align-items: center;
 }
 
+.ok-btn{
+    display: flex;
+    justify-content: flex-end;
+}
