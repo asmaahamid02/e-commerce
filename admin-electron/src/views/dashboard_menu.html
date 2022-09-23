@@ -47,39 +47,35 @@
                 <span id="close">X</span>
                 <h1>SELLER INFO</h1>
                 <div>
-                    <div class="column-direction">
-                        <span>Name:<span class="error" id="name-error"></span></span>
-                        <input id="name-input" type="text">
+                    <div>
+                        <div class="column-direction">
+                            <span>Name:<span class="error" id="name-error"></span></span>
+                            <input id="name-input" type="text">
+                        </div>
+                        <div class="column-direction">
+                            <span>Username:<span class="error" id="username-error"></span></span>
+                            <input id="username-input" type="text">
+                        </div>
+                        <div class="column-direction">
+                            <span>Password:<span class="error" id="password-error"></span></span>
+                            <input id="password-input" type="password">
+                        </div>
+                        <div class="column-direction">
+                            <span>Email:<span class="error" id="email-error"></span></span>
+                            <input id="email-input" type="text">
+                        </div>
                     </div>
                     <div class="column-direction">
-                        <span>Username:<span class="error" id="username-error"></span></span>
-                        <input id="username-input" type="text">
-                    </div>
-                    <div class="column-direction">
-                        <span>Password:<span class="error" id="password-error"></span></span>
-                        <input id="password-input" type="password">
-                    </div>
-                    <div class="column-direction">
-                        <span>Email:<span class="error" id="email-error"></span></span>
-                        <input id="email-input" type="text">
-                        <img id="image-element" class="profile-picture" src="../images/no-profile.svg" alt="">
+                        <img id="image-element" class="profile-picture" src="../images/svg/no-profile.svg" alt="">
                         <label class="buttons green-background">
                             <span id="file-input-text">Edit profile picture</span>
                             <input type="file" accept=".jpg, .png, .svg" id="image"/>
                         </label>
                     </div>
                 </div>
-                <div class="column-direction">
-                    <img id="image-element" class="profile-picture" src="../images/svg/no-profile.svg" alt="">
-                    <label class="buttons green-background">
-                        Edit profile picture
-                        <input type="file" accept=".jpg, .png, .svg" id="image" />
-                    </label>
-                </div>
+                <button class="buttons other-background">EDIT SELLER</button>
             </div>
-            <button class="buttons other-background">EDIT SELLER</button>
-        </div>
-    </section>
+        </section>
     <script src="../javascript/edit-seller.js"></script>
     <script src="../javascript/dashboard.js" type="text/javascript"></script>
 </body>
