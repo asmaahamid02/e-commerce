@@ -8,7 +8,6 @@ const password_error = document.getElementById('password-error')
 const input_name = document.getElementById('name-input')
 const name_error = document.getElementById('name-error')
 const exit_form = document.getElementById("close")
-let can_continue = false
 
 exit_form.addEventListener("click", () => {
     exit_form.parentElement.parentElement.style.visibility = "hidden"
@@ -25,18 +24,23 @@ input_image.onchange = function() {
     reader.readAsDataURL(this.files[0])
 }
 
-input_username.onblur = () =>{
+input_username.onblur = validUsername
+input_name.onblur = validName 
+input_email.onblur = validEmail
+input_password.onblur = validPass
+
+function validUsername(){
     const pattern = /^\w{2,}\w$/
     const result = input_username.value.search(pattern)
     if(result == -1){
         username_error.innerText = '*should be at least 3 characters with no spaces'
-        can_continue = false
+        return false
     }else{
         username_error.innerText = ''
+        return true
     }
 }
-
-input_email.onblur = function validEmail() {
+function validEmail() {
     const pattern = /^\w{3,}@\w{3,}\.\w{2,}$/
     const result = input_email.value.search(pattern)
     if(result == -1){
@@ -48,7 +52,8 @@ input_email.onblur = function validEmail() {
     }
 }
 
-input_password.onblur = function validPass(){
+
+function validPass(){
     if ((input_password.value.length < 12) || (!twoInt()) || (!twoSymbols()) || (!twoUpper()) || (!twoLower())){
         console.log("length")
         passNotStrong()
@@ -59,13 +64,16 @@ input_password.onblur = function validPass(){
     return true
 }
 
-input_name.onblur = () => {
+
+function validName(){
     const pattern = /\w{2,}/
     result = input_name.value.search(pattern)
     if(result == -1){
         name_error.innerText = '*name should be at least 2 characters'
+        return false
     }else{
         name_error.innerText = ''
+        return true
     }
 }
 
