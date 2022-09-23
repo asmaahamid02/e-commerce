@@ -1,0 +1,54 @@
+/* CSS Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Noto Sans', sans-serif;
+}
+
+
+/* Confirmation modal */
+
+.confirmation_alert {
+    /* border: 2px solid gray; */
+    border: none;
+    width: 350px;
+    height: 150px;
+    border-radius: 8px;
+    padding: 10px;
+    background-color: #f3f4f3;
+}
+
+.title_confirmation_alert img {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+}
+
+.title_confirmation_alert {
+    /* border: 2px solid blue; */
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.title_confirmation_alert p {
+    color: #de3030;
+    font-weight: 500;
+}
+
+.confirmation_alert hr {
+    width: 95%;
+    margin: 0 auto;
+}
+
+.confirmation_alert_description {
+    font-size: 15px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: 30px;
+}
+
+.confirmation_alert_btns button {
+    padding: 6px
+}
