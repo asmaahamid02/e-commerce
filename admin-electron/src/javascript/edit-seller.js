@@ -16,6 +16,7 @@ exit_form.addEventListener("click", () => {
 
 input_image.onchange = function() {
     const reader = new FileReader()
+    console.log("inside the function")
     reader.onload = () => {
         const image = reader.result
         document.getElementById('image-element').src = image
