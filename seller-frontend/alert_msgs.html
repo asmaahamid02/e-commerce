@@ -1,39 +1,46 @@
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <!-- <link rel="stylesheet" href="../css/alert_msgs.css"> -->
     <link rel="stylesheet" href="./assets/css/alert_msgs.css">
-    
+
 </head>
+
 <body>
-    
+
     <!-- Task id EC-64: Popup confirmation modal with a text and 2 buttons(confirm, cancel) -->
-    <div class="confirmation_alert">
-        <div class="title_confirmation_alert">
-            <!-- <img class="red-alert-icon" src="../images/alert_icon_red.png"> -->
-            <img class="red-alert-icon" src="./assets/images/alert_icon_red.png">
-            <p>Confirm dialog</p>
-        </div>
+    <div class="confirmation-popup-container">
+        <div class="confirmation_alert">
+            <div class="title_confirmation_alert">
+                <img class="red-alert-icon" src="./assets/images/alert_icon_red.png">
+                <p>Confirm dialog</p>
+            </div>
             <hr>
-        <div class="confirmation_alert_description">
-            <p> text text text texttext text text texttext text text texttext text text texttext text text texttext text text texttext text text text</p>
+            <div class="confirmation_alert_description">
+                <p> text text text texttext text text texttext text text texttext text text texttext text text texttext
+                    text text texttext text text text</p>
+            </div>
+            <div class="confirmation_alert_btns">
+                <button class="green" id="confirm-conf-popup">Confirm</button>
+                <button class="red" id="cancel-conf-popup">Cancel</button>
+            </div>
         </div>
-
-        <div class="confirmation_alert_btns">
-            <button class="green">Confirm</button>
-
-            <button class="red">Cancel</button>
-        </div>
-
     </div>
+    <!-- Button that activates the confimation popup -->
+    <button class="confirmation-popup-active">confirmation popup</button>
+
+
+
+
 
     <!-- Task id EC-65: Popup info modal with text and OK button  -->
     <div>
 
     </div>
-
+    <script src="./assets/javascript/alert_msgs.js"></script>
 </body>
+
 </html>
