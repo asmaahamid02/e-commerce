@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/reset.css">
     <link rel="stylesheet" href="../css/list.css">
+    <link rel="stylesheet" href="../css/styles.css">
     <title>Dasboard Menu</title>
 </head>
 
@@ -37,7 +38,44 @@
             </tr>
         </table>
     </section>
+
+    <section class="background">
+        <div class="add-form">
+            <span id="close">X</span>
+            <h1>SELLER INFO</h1>
+            <div>
+                <div>
+                    <div class="column-direction">
+                        <span>Name:<span class="error" id="name-error"></span></span>
+                        <input id="name-input" type="text">
+                    </div>
+                    <div class="column-direction">
+                        <span>Username:<span class="error" id="username-error"></span></span>
+                        <input id="username-input" type="text">
+                    </div>
+                    <div class="column-direction">
+                        <span>Password:<span class="error" id="password-error"></span></span>
+                        <input id="password-input" type="password">
+                    </div>
+                    <div class="column-direction">
+                        <span>Email:<span class="error" id="email-error"></span></span>
+                        <input id="email-input" type="text">
+                    </div>
+                </div>
+                <div class="column-direction">
+                    <img id="image-element" class="profile-picture" src="../images/svg/no-profile.svg" alt="">
+                    <label class="buttons green-background">
+                        <span id="file-input-text">Edit profile picture</span>
+                        <input type="file" accept=".jpg, .png, .svg" id="image" />
+                    </label>
+                </div>
+            </div>
+            <button class="buttons other-background">EDIT SELLER</button>
+        </div>
+    </section>
     <script src="../javascript/seller_list.js"></script>
+    <script src="../javascript/edit-seller.js"></script>
+    <script src="../javascript/api/edit_seller.js"></script>
 </body>
 
 </html>
