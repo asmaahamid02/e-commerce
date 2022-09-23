@@ -22,26 +22,24 @@
                 seller</button>
         </div>
         <table class="sellers-table">
-            <tr>
-                <th>NAME</th>
-                <th>USERNAME</th>
-                <th>ACTION</th>
-            </tr>
-            <tr>
-                <td>Mohammad Kassem</td>
-                <td>mohamadkassemm</td>
-                <td colspan="3" class="actions">
-                    <a href="" class="profile-icon"><img src='../images/svg/profile-svgrepo-com.svg'></a>
-                    <a href="" class="edit-icon"><img src='../images/svg/edit-svgrepo-com.svg'></a>
-                    <a href="" class="delete-icon"><img src='../images/svg/delete-svgrepo-com.svg'></a>
-                </td>
-            </tr>
+            <thead>
+                <tr>
+                    <th>NAME</th>
+                    <th>USERNAME</th>
+                    <th>ACTION</th>
+                </tr>
+            </thead>
+            <tbody id="table-body">
+
+            </tbody>
+
         </table>
     </section>
 
     <section class="background">
         <div class="add-form">
             <span id="close">X</span>
+
             <h1>SELLER INFO</h1>
             <div>
                 <div>
@@ -65,7 +63,7 @@
                 <div class="column-direction">
                     <img id="image-element" class="profile-picture" src="../images/svg/no-profile.svg" alt="">
                     <label class="buttons green-background">
-                        <span id="file-input-text">Edit profile picture</span>
+                        Edit profile picture
                         <input type="file" accept=".jpg, .png, .svg" id="image" />
                     </label>
                 </div>
@@ -75,7 +73,9 @@
     </section>
     <script src="../javascript/seller_list.js"></script>
     <script src="../javascript/edit-seller.js"></script>
-    <script src="../javascript/api/edit_seller.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="../javascript/api/list_seller_api.js"></script>
+
 </body>
 
 </html>
