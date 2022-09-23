@@ -1,3 +1,6 @@
+const table = document.querySelector(".sellers-table")
+getClients()
+
 function addRow(name, username, profile_picture, is_banned){
     const row = document.createElement("tr")
     // adding name to the first table data
@@ -6,10 +9,12 @@ function addRow(name, username, profile_picture, is_banned){
     row.appendChild(attribute)
 
     // adding username to the second table data
+    attribute = document.createElement("td")
     attribute.textContent = "@" + username
     row.appendChild(attribute)
 
     // adding profile picture if it exisits
+    attribute = document.createElement("td")
     const profile = document.createElement("img")
     if(profile_picture){
         profile.src = profile_picture
@@ -29,10 +34,17 @@ function addRow(name, username, profile_picture, is_banned){
 
     // adding if user is banned information
     attribute = document.createElement("td")
-    attribute.textContent = is_banned ? "Unban user" : "Ban user"
+    attribute.textContent = is_banned ? "Unban Client" : "Ban Client"
     row.appendChild(attribute)
 
     return row
 }
 
-console.log(addRow("name1", "username1", "", false))
+async function getClients(){
+    const response = await axios.get("http://localhost/e-commerce/ecommerce-server/api/get_clients.php")
+    const data = response.data
+    console.log(data)
+    for(const i of data){
+        table.appendChild(addRow(i.client_name, i.client_username, i.client_pp, i.client_banned_status))
+    }
+}
