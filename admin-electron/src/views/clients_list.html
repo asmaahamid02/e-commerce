@@ -5,29 +5,64 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="../css/clients_list.css">
+  <link rel="stylesheet" href="../css/reset.css">
+  <link rel="stylesheet" href="../css/list.css">
   <title>Dasboard Menu</title>
 </head>
 
 <body>
   <section class="body-part">
-    <table class="sellers-table">
+    <div class="top-bar">
+      <div class="right">
+        <span><img class="header-icon" src="../images/svg/amaze-svgrepo-com.svg"></span>
+        <span id="nav-title">Customers</span>
+      </div>
+    </div>
+    <table class="table">
       <tr>
         <th>NAME</th>
         <th>USERNAME</th>
-        <th>PROFILE</th>
-        <th>EDIT</th>
-        <th>BAN</th>
+        <th>ACTION</th>
+      </tr>
+      <!-- <tr>
+        <td>Peter Saba</td>
+        <td>petersaba</td>
+        <td colspan="3" class="actions">
+          <a href="" class="profile-icon"><img src='../images/svg/profile-svgrepo-com.svg'></a>
+          <a href="" class="edit-icon"><img src='../images/svg/edit-svgrepo-com.svg'></a>
+          <a href="" class="delete-icon"><img src='../images/svg/ban-svgrepo-com.svg'></a>
+        </td>
       </tr>
       <tr>
         <td>Peter Saba</td>
-        <td><i>@petersaba</i></td>
-        <td><img src="../images/svg/profile-svgrepo-com.svg" alt=""></td>
-        <td><i class="fa fa-pencil"></i></td>
-        <td><i id="ban">Ban Client</i></td>
+        <td>petersaba</td>
+        <td colspan="3" class="actions">
+          <a href="" class="profile-icon"><img src='../images/svg/profile-svgrepo-com.svg'></a>
+          <a href="" class="edit-icon"><img src='../images/svg/edit-svgrepo-com.svg'></a>
+          <a href="" class="delete-icon"><img src='../images/svg/ban-svgrepo-com.svg'></a>
+        </td>
+      </tr>
+      <tr>
+        <td>Peter Saba</td>
+        <td>petersaba</td>
+        <td colspan="3" class="actions">
+          <a href="" class="profile-icon"><img src='../images/svg/profile-svgrepo-com.svg'></a>
+          <a href="" class="edit-icon"><img src='../images/svg/edit-svgrepo-com.svg'></a>
+          <a href="" class="delete-icon"><img src='../images/svg/ban-svgrepo-com.svg'></a>
+        </td>
+      </tr>
+      <tr>
+        <td>Peter Saba</td>
+        <td>petersaba</td>
+        <td colspan="3" class="actions">
+          <a href="" class="profile-icon"><img src='../images/svg/profile-svgrepo-com.svg'></a>
+          <a href="" class="edit-icon"><img src='../images/svg/edit-svgrepo-com.svg'></a>
+          <a href="" class="delete-icon"><img src='../images/svg/ban-svgrepo-com.svg'></a>
+        </td>
       </tr>
     </table>
   </section>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="../javascript/api/clients_list.js"></script>
 </body>
-
 </html>
