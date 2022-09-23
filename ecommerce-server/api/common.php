@@ -31,6 +31,11 @@ class Common
         return '../../client-fronend/assets/images/profiles/';
     }
 
+    public function getProductsPath()
+    {
+        return '../../seller-frontend/assets/images/products/';
+    }
+
     public function emailAndUsernameExist($username, $email)
     {
         require("connection.php");
