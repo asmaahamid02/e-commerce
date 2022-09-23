@@ -30,6 +30,14 @@
     position: relative;
 } 
  
+#close{
+    position: absolute;
+    font-size: 20px;
+    cursor: pointer;
+    top: 10px;
+    right: 15px;
+}
+
 .add-form > h1{ 
     padding-bottom: 20px; 
     color: #323246; 
@@ -108,4 +116,8 @@ input[type='file']{
 
 .error{
     color: red;
+}
+
+#file-input-text{
+    color: white;
 }
