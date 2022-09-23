@@ -10,13 +10,12 @@
 /* Confirmation modal */
 
 .confirmation_alert {
-    /* border: 2px solid gray; */
     border: none;
     width: 350px;
-    height: 150px;
+    height: fit-content;
     border-radius: 8px;
     padding: 10px;
-    background-color: #f3f4f3;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
 .title_confirmation_alert img {
@@ -26,10 +25,10 @@
 }
 
 .title_confirmation_alert {
-    /* border: 2px solid blue; */
     display: flex;
     align-items: center;
     margin-bottom: 5px;
+
 }
 
 .title_confirmation_alert p {
@@ -43,6 +42,7 @@
 }
 
 .confirmation_alert_description {
+
     font-size: 15px;
     margin-top: 20px;
     margin-bottom: 20px;
@@ -50,5 +50,26 @@
 }
 
 .confirmation_alert_btns button {
-    padding: 6px
+    width: 40%;
+    font-size: 16px;
+    font-weight: 600;
+    padding: 6px;
+    background-color: rgba(0, 0, 0, 0);
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.confirmation_alert_btns {
+    display: flex;
+    justify-content: space-between;
+}
+
+.red{
+    border:2px solid #de3030;
+    color: #de3030;
+}
+
+.green{
+    border:2px solid rgb(5, 113, 5);
+    color: rgb(5, 113, 5);
 }
