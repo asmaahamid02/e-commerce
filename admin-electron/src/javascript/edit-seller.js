@@ -8,7 +8,10 @@ const password_error = document.getElementById('password-error')
 const input_name = document.getElementById('name-input')
 const name_error = document.getElementById('name-error')
 const exit_form = document.getElementById("close")
-let base64_image
+
+exit_form.addEventListener("click", () => {
+    exit_form.parentElement.parentElement.style.visibility = "hidden"
+})
 
 exit_form.addEventListener("click", () => {
     exit_form.parentElement.parentElement.style.visibility = "hidden"
@@ -16,6 +19,7 @@ exit_form.addEventListener("click", () => {
 
 input_image.onchange = function() {
     const reader = new FileReader()
+    console.log("inside the function")
     reader.onload = () => {
         const image = reader.result
         document.getElementById('image-element').src = image

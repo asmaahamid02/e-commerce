@@ -122,12 +122,6 @@ input[type='file']{
     color: red;
 }
 
-.status-message{
-    padding-top: 20px;
-    font-size: 18px;
-    font-weight: bold;
-}
-
 #file-input-text{
     color: white;
 }

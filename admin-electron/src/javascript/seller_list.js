@@ -3,11 +3,6 @@ const tableUsername=document.getElementById("table-username")
 const add_button = document.getElementById("add-button")
 const popup_element = parent.document.querySelector("body").querySelector(".background")
 const edit_icons = Array.from(document.getElementsByClassName("fa-pencil"))
-const profile_image = parent.document.getElementById("image-element")
-const input_fields = parent.document.getElementsByClassName("info-field")
-console.log(profile_image)
-console.log(input_fields)
-
 
 // adding event listeners for all edit icons of all table rows 
 for(const i of edit_icons){
