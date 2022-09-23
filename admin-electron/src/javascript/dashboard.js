@@ -1,16 +1,18 @@
+
 const dashboard = document.getElementById('dashboard')
 const customers = document.getElementById('customers')
 const sellers = document.getElementById('sellers')
 const iframe = document.getElementById('frame')
 const username = document.getElementById('username')
 const title = document.getElementById('nav-title')
-
+const popup_element = document.querySelector(".background")
 const nav_items = document.querySelectorAll('.sidebar-item')
 
 nav_items.forEach((item) => {
   item.addEventListener('click', (e) => {
     e.preventDefault()
     console.log(item)
+    popup_element.style.visibility = "hidden"
     iframe.src = item.dataset.page
     nav_items.forEach((item) => item.classList.remove('active'))
     item.classList.add('active')
@@ -28,3 +30,4 @@ nav_items.forEach((item) => {
 //   iframe.src = 'seller_list.html'
 //   title.innerText = 'Sellers'
 // })
+
