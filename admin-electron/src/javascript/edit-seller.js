@@ -33,7 +33,7 @@ function validUsername(){
     const pattern = /^\w{2,}\w$/
     const result = input_username.value.search(pattern)
     if(result == -1){
-        username_error.innerText = '*should be at least 3 characters with no spaces'
+        username_error.innerText = '*should be at least 3 characters with no spaces or special characters'
         return false
     }else{
         username_error.innerText = ''

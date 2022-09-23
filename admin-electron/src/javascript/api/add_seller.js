@@ -1,4 +1,5 @@
 const submit = document.querySelector(".other-background")
+const popup = document.querySelector(".add-form")
 
 submit.addEventListener('click', () =>{
     if (validName() && validUsername() && validPass() && validEmail()){
@@ -17,4 +18,9 @@ submit.addEventListener('click', () =>{
 async function addSeller(data){
     const response = await axios.post("http://localhost/e-commerce/ecommerce-server/api/create_user.php", data)
     console.log(response.data)
+    const message = document.createElement("span")
+    message.classList.add("status-message")
+    message.style.color = response.data.status == 1 ? "lightgreen" : "red"
+    message.innerText = response.data.message
+    popup.appendChild(message)
 }
