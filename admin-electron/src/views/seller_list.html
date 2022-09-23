@@ -22,12 +22,15 @@
                 seller</button>
         </div>
         <table class="sellers-table">
-            <tr>
-                <th>NAME</th>
-                <th>USERNAME</th>
-                <th>ACTION</th>
-            </tr>
-            <tr>
+            <thead>
+                <tr>
+                    <th>NAME</th>
+                    <th>USERNAME</th>
+                    <th>ACTION</th>
+                </tr>
+            </thead>
+            <tbody id="table-body">
+  <tr>
                 <td>Mohammad Kassem</td>
                 <td>mohamadkassemm</td>
                 <td colspan="3" class="actions">
@@ -36,6 +39,9 @@
                             src='../images/svg/delete-svgrepo-com.svg'></a>
                 </td>
             </tr>
+            </tbody>
+
+
         </table>
     </section>
 
@@ -43,6 +49,7 @@
         <div class="add-form">
             <span class="close" id="add-close">X</span>
             <h1>Add Seller</h1>
+
             <div>
                 <div>
                     <div class="column-direction">
@@ -101,6 +108,7 @@
                     <img id="edit-image-element" class="profile-picture" src="../images/svg/no-profile.svg" alt="">
                     <label class="buttons green-background">
                         <span id="edit-file-input-text" class="file-input-text">Edit profile picture</span>
+
                         <input type="file" accept=".jpg, .png, .svg" id="image" />
                     </label>
                 </div>
@@ -131,6 +139,7 @@
     <script src="../javascript/edit-seller.js"></script>
     <script src="../javascript/alert_msgs.js"></script>
     <script src="../javascript/api/edit_seller.js"></script>
+
 </body>
 
 </html>
