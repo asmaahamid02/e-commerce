@@ -1,56 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
-/* Css reset*/
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-h1 {
-  font-size: 90px;
-}
-
-h2 {
-  font-size: 40px;
-}
-
-h3 {
-  font-size: 35px;
-}
-
-h4 {
-  font-size: 28px;
-}
-
-h5 {
-  font-size: 24px;
-}
-
-h6 {
-  font-size: 18px;
-}
-
-p {
-  font-size: 18px;
-}
-
-a {
-  text-decoration: none;
-  color: inherit;
-}
-
-ul {
-  list-style: none;
-}
-
-body {
-  font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
-    Helvetica, Arial, sans-serif;
-  height: 100vh;
-}
-
 .container {
   width: 100%;
-  padding: 20px 30px;
+  /* padding: 20px 30px; */
+  display: flex;
+  flex-direction: column;
 }
 
 /*top statistics*/
@@ -60,7 +12,8 @@ body {
 }
 
 .best-user {
-  flex-basis: 50%;
+  width: 50%;
+  max-width: 50%;
   padding: 10px 20px;
 }
 
@@ -104,20 +57,30 @@ body {
 }
 
 /*bottom statistics*/
+.totals-header {
+  display: flex;
+  justify-content: center;
+  margin-top: 10vh;
+}
+
+.totals-title {
+  color: #323246;
+  font-size: 35px;
+  font-weight: bold;
+  text-align: center;
+}
 
 .totals-statistics {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 20vh auto;
-  width: 150vh;
+  margin: 0 auto;
 }
 
 .totals-statistics > .total {
-  flex-basis: 33.33%;
+  max-width: 33.33%;
   margin-right: 20px;
   /* width: 40vh; */
-  height: 45vh;
 }
 
 .totals-statistics > .total:last-child {
@@ -125,8 +88,9 @@ body {
 }
 
 .circle-chart {
-  width: 100%;
-  height: 100%;
+  width: 20vw;
+  height: 20vw;
+  margin: 35px;
   border-radius: 50%;
   display: flex;
   flex-direction: column;
