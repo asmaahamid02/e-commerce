@@ -8,7 +8,7 @@ const password_error = document.getElementById('password-error')
 const input_name = document.getElementById('name-input')
 const name_error = document.getElementById('name-error')
 const exit_form = document.getElementById("close")
-
+let can_continue = false
 
 exit_form.addEventListener("click", () => {
     exit_form.parentElement.parentElement.style.visibility = "hidden"
@@ -30,47 +30,33 @@ input_username.onblur = () =>{
     const result = input_username.value.search(pattern)
     if(result == -1){
         username_error.innerText = '*should be at least 3 characters with no spaces'
+        can_continue = false
     }else{
         username_error.innerText = ''
     }
 }
 
-input_email.onblur = () =>{
+input_email.onblur = function validEmail() {
     const pattern = /^\w{3,}@\w{3,}\.\w{2,}$/
     const result = input_email.value.search(pattern)
     if(result == -1){
         email_error.innerText = '*please enter a valid email'
+        return false
     }else{
         email_error.innerText = ''
+        return true
     }
 }
 
-input_password.onblur = () =>{
-    if (input_password.value.length < 12){
+input_password.onblur = function validPass(){
+    if ((input_password.value.length < 12) || (!twoInt()) || (!twoSymbols()) || (!twoUpper()) || (!twoLower())){
+        console.log("length")
         passNotStrong()
-        return
-    }
-    if(!twoInt()){
-        passNotStrong()
-        return
-    }
-
-    if(!twoSymbols()){
-        passNotStrong()
-        return
-    }
-
-    if(!twoUpper()){
-        passNotStrong()
-        return
-    }
-
-    if(!twoLower()){
-        passNotStrong()
-        return
+        return false
     }
 
     password_error.innerText = ''
+    return true
 }
 
 input_name.onblur = () => {
@@ -108,9 +94,10 @@ function twoLower(){
     result = input_password.value.search(pattern)
     if(result == -1){
         passNotStrong()
-        return 
+        return false
     }else{
         password_error.innerText = ''
+        return true
     }
 }
 
@@ -119,9 +106,10 @@ function twoUpper(){
     result = input_password.value.search(pattern)
     if(result == -1){
         passNotStrong()
-        return 
+        return false
     }else{
         password_error.innerText = ''
+        return true
     }
 }
 
