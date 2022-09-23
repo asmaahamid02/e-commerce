@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/reset.css">
     <link rel="stylesheet" href="../css/list.css">
+    <link rel="stylesheet" href="../css/styles.css">
     <title>Dasboard Menu</title>
 </head>
 
@@ -21,23 +22,57 @@
                 seller</button>
         </div>
         <table class="sellers-table">
-            <tr>
-                <th>NAME</th>
-                <th>USERNAME</th>
-                <th>ACTION</th>
-            </tr>
-            <tr>
-                <td>Mohammad Kassem</td>
-                <td>mohamadkassemm</td>
-                <td colspan="3" class="actions">
-                    <a href="" class="profile-icon"><img src='../images/svg/profile-svgrepo-com.svg'></a>
-                    <a href="" class="edit-icon"><img src='../images/svg/edit-svgrepo-com.svg'></a>
-                    <a href="" class="delete-icon"><img src='../images/svg/delete-svgrepo-com.svg'></a>
-                </td>
-            </tr>
+            <thead>
+                <tr>
+                    <th>NAME</th>
+                    <th>USERNAME</th>
+                    <th>ACTION</th>
+                </tr>
+            </thead>
+            <tbody id="table-body">
+
+            </tbody>
+
         </table>
     </section>
+
+    <section class="background">
+        <div class="add-form">
+            <h1>SELLER INFO</h1>
+            <div>
+                <div>
+                    <div class="column-direction">
+                        <span>Name:<span class="error" id="name-error"></span></span>
+                        <input id="name-input" type="text">
+                    </div>
+                    <div class="column-direction">
+                        <span>Username:<span class="error" id="username-error"></span></span>
+                        <input id="username-input" type="text">
+                    </div>
+                    <div class="column-direction">
+                        <span>Password:<span class="error" id="password-error"></span></span>
+                        <input id="password-input" type="password">
+                    </div>
+                    <div class="column-direction">
+                        <span>Email:<span class="error" id="email-error"></span></span>
+                        <input id="email-input" type="text">
+                    </div>
+                </div>
+                <div class="column-direction">
+                    <img id="image-element" class="profile-picture" src="../images/svg/no-profile.svg" alt="">
+                    <label class="buttons green-background">
+                        Edit profile picture
+                        <input type="file" accept=".jpg, .png, .svg" id="image" />
+                    </label>
+                </div>
+            </div>
+            <button class="buttons other-background">EDIT SELLER</button>
+        </div>
+    </section>
     <script src="../javascript/seller_list.js"></script>
+    <script src="../javascript/edit-seller.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="../javascript/api/list_seller_api.js"></script>
 </body>
 
 </html>
