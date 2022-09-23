@@ -13,31 +13,26 @@
 <body>
     <!-- start of dashboard menu -->
     <section class="sidebar">
-        <div class="profile">
-            <!-- <img src="../favicon.ico" alt=""> -->
-            <div>
-                <p>Name</p>
-                <a>Username</a>
+        <a href="dashboard_menu.html" class="logo"><img src="../images/png/logo2.png" alt=""></a>
+        <div class="account-profile">
+            <img src="../images/svg/no-profile.svg" alt="">
+            <div class="account-details">
+                <span class="account-name">Asmaa Hamid</span>
+                <span class="account-username">@asmaahamid</span>
             </div>
         </div>
-        <div class="dashboard">
-            <!-- <img src="./person_1058396.png" alt=""> -->
-            <button id="dashboard">Dashboard</button>
-        </div>
-        <div class="customers">
-            <!-- <img src="./person_1058396.png" alt=""> -->
-            <button id="customers">Customers</button>
-        </div>
-        <div class="sellers">
-            <!-- <img src="./person_1058396.png" alt=""> -->
-            <button id="sellers">Sellers</button>
-        </div>
+        <ul class="sidebar--items">
+            <li class="sidebar-item active" data-page="statistics.html" data-title="Statistics"><a href=""><img
+                        src="../images/svg/dashboard-svgrepo-com.svg">Dashboard</a>
+            </li>
+            <li class="sidebar-item" data-page="clients_list.html" data-title=" Customers"><a href=""><img
+                        src="../images/svg/users-svgrepo-com.svg">Customers</a></li>
+            <li class="sidebar-item" data-page="seller_list.html" data-title="sellers"><a href=""><img
+                        src="../images/svg/seller-svgrepo-com.svg">Sellers</a></li>
+        </ul>
     </section>
     <!--end of dashboard menu -->
     <section class="section2">
-        <div class="top-bar">
-            <span id="nav-title">Statistics</span>
-        </div>
         <iframe id="frame" src="statistics.html" frameborder="0"></iframe>
     </section>
         <!-- this is where the form will be shown to add or edit a seller -->
