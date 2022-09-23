@@ -1,54 +1,48 @@
-// const remove= document.getElementById("remove")
-// const tableUsername=document.getElementById("table-username")
-const add_button = document.getElementById('add-button')
-const popup_element = parent.document
-  .querySelector('body')
-  .querySelector('.background')
-const edit_icons = Array.from(document.getElementsByClassName('fa-pencil'))
-const profile_image = parent.document.getElementById('image-element')
-const input_fields = parent.document.getElementsByClassName('info-field')
-console.log(profile_image)
-console.log(input_fields)
+document.addEventListener('DOMContentLoaded', () => {
+  const add_button = document.getElementById('add-button')
+  const edit_button = document.querySelector('.actions>a:nth-child(1)')
+  const add_popup = document.querySelector('#add-popup')
+  const edit_popup = document.querySelector('#edit-popup')
+  const exit_add_form = document.getElementById('add-close')
+  const exit_edit_form = document.getElementById('edit-close')
 
-// adding event listeners for all edit icons of all table rows
-for (const i of edit_icons) {
-  i.addEventListener('click', () => {
-    const status_message = parent.document.querySelector('.status-message')
+  exit_add_form.addEventListener('click', () => {
+    add_popup.style.display = 'none'
+  })
+
+  exit_edit_form.addEventListener('click', () => {
+    edit_popup.style.display = 'none'
+  })
+
+  const resetForm = (parent) => {
+    const status_message = parent.querySelector('.status-message')
+    const profile_image = parent.querySelector('.profile-picture')
+    const input_fields = parent.querySelectorAll('.info-field')
     if (status_message) {
       status_message.remove()
     }
-    popup_element.style.visibility = 'visible'
-    popup_element.querySelector('.other-background').innerText = 'EDIT SELLER'
-    parent.document.getElementById('file-input-text').innerText =
-      'Edit profile picture'
+    // clearing old data if it exists
+    profile_image.src = '../images/svg/no-profile.svg'
+    for (const i of input_fields) {
+      i.value = ''
+    }
+    parent.style.display = 'block'
+  }
+
+  // show popup for seller info and change buttons from edit to add
+  add_button.addEventListener('click', () => {
+    resetForm(add_popup)
   })
-}
 
-// remove.addEventListener("click",()=>{
-//     remove.innerText="Removed"
-// })
-// tableUsername.addEventListener("click",()=>{
-//     window.location.replace("profile.html")
-// })
+  edit_button.addEventListener('click', () => {
+    resetForm(edit_popup)
+  })
 
-// show popup for seller info and change buttons from edit to add
-add_button.addEventListener('click', () => {
-  const status_message = parent.document.querySelector('.status-message')
-  if (status_message) {
-    status_message.remove()
+  window.onclick = function (event) {
+    if (event.target == add_popup) {
+      add_popup.style.display = 'none'
+    } else if (event.target == edit_popup) {
+      edit_popup.style.display = 'none'
+    }
   }
-  // clearing old data if it exists
-  profile_image.src = '../images/svg/no-profile.svg'
-  for (const i of input_fields) {
-    i.value = ''
-  }
-
-  popup_element.style.visibility = 'visible'
-  popup_element.style.position = 'fixed'
-  popup_element.style.zIndex = '100'
-
-  console.log(popup_element.style.visibility)
-  popup_element.querySelector('.other-background').innerText = 'ADD SELLER'
-  parent.document.getElementById('file-input-text').innerText =
-    'Add profile picture'
 })

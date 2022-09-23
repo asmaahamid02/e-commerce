@@ -30,17 +30,26 @@
                 </tr>
             </thead>
             <tbody id="table-body">
-
+  <tr>
+                <td>Mohammad Kassem</td>
+                <td>mohamadkassemm</td>
+                <td colspan="3" class="actions">
+                    <a href="javascript:void(0);" class="edit-icon"><img src='../images/svg/edit-svgrepo-com.svg'></a>
+                    <a href="javascript:void(0);" class="delete-icon confirmation-popup-active"><img
+                            src='../images/svg/delete-svgrepo-com.svg'></a>
+                </td>
+            </tr>
             </tbody>
+
 
         </table>
     </section>
 
-    <section class="background">
+    <section class="background" id="add-popup">
         <div class="add-form">
-            <span id="close">X</span>
+            <span class="close" id="add-close">X</span>
+            <h1>Add Seller</h1>
 
-            <h1>SELLER INFO</h1>
             <div>
                 <div>
                     <div class="column-direction">
@@ -63,7 +72,43 @@
                 <div class="column-direction">
                     <img id="image-element" class="profile-picture" src="../images/svg/no-profile.svg" alt="">
                     <label class="buttons green-background">
-                        Edit profile picture
+                        <span id="file-input-text" class="file-input-text">Add profile picture</span>
+                        <input type="file" accept=".jpg, .png, .svg" id="image" />
+                    </label>
+                </div>
+            </div>
+            <button class="buttons other-background">ADD SELLER</button>
+        </div>
+    </section>
+
+    <section class="background" id="edit-popup">
+        <div class="add-form">
+            <span class="close" id="edit-close">X</span>
+            <h1>SELLER INFO</h1>
+            <div>
+                <div>
+                    <div class="column-direction">
+                        <span>Name:<span class="error" id="edit-name-error"></span></span>
+                        <input id="edit-name-input" type="text">
+                    </div>
+                    <div class="column-direction">
+                        <span>Username:<span class="error" id="edit-username-error"></span></span>
+                        <input id="edit-username-input" type="text">
+                    </div>
+                    <div class="column-direction">
+                        <span>Password:<span class="error" id="edit-password-error"></span></span>
+                        <input id="edit-password-input" type="password">
+                    </div>
+                    <div class="column-direction">
+                        <span>Email:<span class="error" id="edit-email-error"></span></span>
+                        <input id="edit-email-input" type="text">
+                    </div>
+                </div>
+                <div class="column-direction">
+                    <img id="edit-image-element" class="profile-picture" src="../images/svg/no-profile.svg" alt="">
+                    <label class="buttons green-background">
+                        <span id="edit-file-input-text" class="file-input-text">Edit profile picture</span>
+
                         <input type="file" accept=".jpg, .png, .svg" id="image" />
                     </label>
                 </div>
@@ -71,10 +116,29 @@
             <button class="buttons other-background">EDIT SELLER</button>
         </div>
     </section>
+
+    <div id="alert">
+        <div class="confirmation-popup-container">
+            <div class="confirmation_alert">
+                <div class="title_confirmation_alert">
+                    <img class="red-alert-icon" src="../images/png/alert_icon_red.png">
+                    <p>Confirm dialog</p>
+                </div>
+                <hr>
+                <div class="confirmation_alert_description">
+                    <p> Are You sure you want to delete?</p>
+                </div>
+                <div class="confirmation_alert_btns">
+                    <button class="green" id="confirm-conf-popup">Confirm</button>
+                    <button class="red" id="cancel-conf-popup">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
     <script src="../javascript/seller_list.js"></script>
     <script src="../javascript/edit-seller.js"></script>
-    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <script src="../javascript/api/list_seller_api.js"></script>
+    <script src="../javascript/alert_msgs.js"></script>
+    <script src="../javascript/api/edit_seller.js"></script>
 
 </body>
 
