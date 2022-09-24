@@ -26,7 +26,9 @@ const errorMsg = (msg) => {
   description_conf_popup.innerHTML = error_msg_html
 }
 
-const triggerAlert = () => {
+const triggerAlert = (text) => {
+  const text_alert = popUpBg.querySelector('#text-alert')
+  text_alert.textContent = text
   popUpBg.classList.add('bg-active')
   return true
 }
