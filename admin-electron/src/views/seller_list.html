@@ -39,20 +39,18 @@
                         <a href="javascript:void(0);" class="delete-icon confirmation-popup-active"><img
                                 src='../images/svg/delete-svgrepo-com.svg'></a>
                     </td>
-                </tr> -->
+                    </tr> -->
             </tbody>
 
-
-            </tbody>
 
         </table>
     </section>
 
-    <section class="background">
+    <section class="background" id="add-popup">
         <div class="add-form">
-            <span id="close">X</span>
+            <span class="close" id="add-close">X</span>
+            <h1>Add Seller</h1>
 
-            <h1>SELLER INFO</h1>
             <div>
                 <div>
                     <div class="column-direction">
@@ -85,6 +83,7 @@
     </section>
 
     <section class="background" data-id="" id="edit-popup">
+
         <div class="add-form">
             <span class="close" id="edit-close">X</span>
             <h1>SELLER INFO</h1>
@@ -118,6 +117,25 @@
             <button class="buttons other-background">EDIT SELLER</button>
         </div>
     </section>
+
+    <div id="alert">
+        <div class="confirmation-popup-container">
+            <div class="confirmation_alert">
+                <div class="title_confirmation_alert">
+                    <img class="red-alert-icon" src="../images/png/alert_icon_red.png">
+                    <p>Confirm dialog</p>
+                </div>
+                <hr>
+                <div class="confirmation_alert_description">
+                    <p> Are You sure you want to delete?</p>
+                </div>
+                <div class="confirmation_alert_btns">
+                    <button class="green" id="confirm-conf-popup">Confirm</button>
+                    <button class="red" id="cancel-conf-popup">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
     <script src="../javascript/seller_list.js"></script>
     <script src="../javascript/alert_msgs.js"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
