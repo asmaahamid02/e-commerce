@@ -6,16 +6,18 @@
     $common = new Common();
 
 
-    if(isset($_GET['id'])){
+    if(isset($_GET['id']) && isset($_GET['interval'])){
         $id = $_GET['id'];
+        $interval = $_GET['interval'];
 
         $today = date('Y-m-d');
-        $last_week = date("Y-m-d", strtotime($today . "-1 week"));
-        $last_month = date("Y-m-d", strtotime($today . "-1 month"));
-        $last_year = date("Y-m-d", strtotime($today . "-1 year"));
-        // echo $last_week;
-        // echo $last_month;
-        // echo $last_year;
+        if($interval == 'week'){
+            $interval = date("Y-m-d", strtotime($today . "-1 week"));
+        }else if($interval == 'month'){
+            $interval = date("Y-m-d", strtotime($today . "-1 month"));
+        }else if($interval == 'year'){
+            $interval = date("Y-m-d", strtotime($today . "-1 year"));
+        }
 
 
         // get the price and the quantaty sold of the products that are not discounted
@@ -23,7 +25,7 @@
                                         FROM categories AS c, products AS p, cart_items AS ci, carts AS ca, discounts AS d
                                         WHERE c.seller_id=? AND c.id=p.categorie_id AND p.id=ci.product_id AND ci.cart_id=ca.id AND ca.purchased_at>=? AND (ca.discount_id IS NULL OR (ca.discount_id=d.id AND d.seller_id != ?))
                                         GROUP BY p.id');
-        $query->bind_param('isi', $id, $last_month, $id);
+        $query->bind_param('isi', $id, $interval, $id);
         $query->execute();
         $result = $query->get_result();
 
@@ -42,7 +44,7 @@
                                         FROM categories AS c, products AS p, cart_items AS ci, carts AS ca, discounts AS d
                                         WHERE c.seller_id=? AND c.id=p.categorie_id AND p.id=ci.product_id AND ci.cart_id=ca.id AND ca.purchased_at>=? AND ca.discount_id=d.id AND d.seller_id = ?
                                         GROUP BY p.id');
-        $query->bind_param('isi', $id, $last_month, $id);
+        $query->bind_param('isi', $id, $interval, $id);
         $query->execute();
         $result = $query->get_result();
         
@@ -55,13 +57,13 @@
         foreach($discounted as $value){
             $discountedPrice += $value['price'] * $value['percentage']/100 * $value['purchased_number'];
         }
-        echo $discountedPrice;
+        
+        $final_price = $discountedPrice + $noDiscountPrice;
+        $response = $common->getRepsonse(1, $final_price, "query executed successfully");
 
-        $discounted = $common->getRepsonse(1, $discounted, "query executed successfully");
-
-        echo json_encode($discounted);
+        echo json_encode($response);
     }else{
-        $response = $common->getRepsonse(0, null, "no id is given");
+        $response = $common->getRepsonse(0, null, "no sufficient data is given");
         echo json_encode($response);
     }
 ?>
