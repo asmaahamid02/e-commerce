@@ -3,7 +3,9 @@ const edit_popup = document.querySelector('#edit-popup')
 const get_sellers_api =
   'http://localhost/e-commerce/ecommerce-server/api/get_sellers.php'
 const delete_seller_api =
-  'http://localhost/e-commerce/ecommerce-server/api/delete_seller.php'
+  'http://localhost/e-commerce/ecommerce-server/api/delete_seller.php?id='
+
+const config = {}
 
 const resetForm = (parent, id) => {
   const status_message = parent.querySelector('.status-message')
@@ -20,13 +22,32 @@ const resetForm = (parent, id) => {
   parent.dataset.id = id
   parent.style.display = 'block'
 }
+async function deleteSeller(id) {
+  const response = await axios.get(delete_seller_api + id).then(
+    (response) => {
+      console.log(response.data)
+      if (response.data.status) {
+        //success
+        displaySuccessMsg(response.data.message)
+      } else {
+        //error
+        displayErrorMsg(response.data.message)
+        return
+      }
+    },
+    (error) => {
+      console.log(error)
+    }
+  )
+}
 
 const getSellers = async () => {
   const response = await axios.get(get_sellers_api)
   const data = response.data
-
+  console.log(response.data)
   if (data.status == 1 && data.data != null) {
     // console.log(data)
+    sellers_table.innerHTML = ''
     for (const seller of data.data) {
       const row = `<tr>
       <td>${seller.seller_name}</td>
@@ -65,8 +86,3 @@ const getSellers = async () => {
   }
 }
 getSellers()
-async function deleteSeller(id) {
-  const response = await axios.post(delete_seller_api, { id: id })
-  const data = response.data
-  console.log(data)
-}
