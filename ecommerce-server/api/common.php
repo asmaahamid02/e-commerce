@@ -64,6 +64,20 @@ class Common
         return $result->num_rows > 0;
     }
 
+    public function getUserData($id)
+    {
+        require("connection.php");
+        //check if username or email exist
+        $sql = "SELECT * from users where id = ? ";
+        $stmt = $connection->prepare($sql);
+        $stmt->bind_param('i', $id);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $stmt->close();
+        $connection->close();
+        return $result->fetch_assoc();
+    }
+
     public function getRepsonse($status, $data, $message)
     {
         return [

@@ -26,19 +26,21 @@
                 <tr>
                     <th>NAME</th>
                     <th>USERNAME</th>
+                    <th>EMAIL</th>
                     <th>ACTION</th>
                 </tr>
             </thead>
             <tbody id="table-body">
-  <tr>
-                <td>Mohammad Kassem</td>
-                <td>mohamadkassemm</td>
-                <td colspan="3" class="actions">
-                    <a href="javascript:void(0);" class="edit-icon"><img src='../images/svg/edit-svgrepo-com.svg'></a>
-                    <a href="javascript:void(0);" class="delete-icon confirmation-popup-active"><img
-                            src='../images/svg/delete-svgrepo-com.svg'></a>
-                </td>
-            </tr>
+                <!-- <tr>
+                    <td>Mohammad Kassem</td>
+                    <td>mohamadkassemm</td>
+                    <td class="actions">
+                        <a href="javascript:void(0);" class="edit-icon"><img
+                                src='../images/svg/edit-svgrepo-com.svg'></a>
+                        <a href="javascript:void(0);" class="delete-icon confirmation-popup-active"><img
+                                src='../images/svg/delete-svgrepo-com.svg'></a>
+                    </td>
+                    </tr> -->
             </tbody>
 
 
@@ -46,27 +48,31 @@
     </section>
 
     <section class="background" id="add-popup">
-        <div class="add-form">
+        <div class="add-form addd">
             <span class="close" id="add-close">X</span>
             <h1>Add Seller</h1>
 
             <div>
                 <div>
                     <div class="column-direction">
-                        <span>Name:<span class="error" id="name-error"></span></span>
+                        <span>Name:</span>
                         <input id="name-input" type="text">
+                        <span class="error" id="name-error"></span>
                     </div>
                     <div class="column-direction">
-                        <span>Username:<span class="error" id="username-error"></span></span>
+                        <span>Username:</span>
                         <input id="username-input" type="text">
+                        <span class="error" id="username-error"></span>
                     </div>
                     <div class="column-direction">
-                        <span>Password:<span class="error" id="password-error"></span></span>
+                        <span>Password:</span>
                         <input id="password-input" type="password">
+                        <span class="error" id="password-error"></span>
                     </div>
                     <div class="column-direction">
-                        <span>Email:<span class="error" id="email-error"></span></span>
+                        <span>Email:</span>
                         <input id="email-input" type="text">
+                        <span class="error" id="email-error"></span>
                     </div>
                 </div>
                 <div class="column-direction">
@@ -77,43 +83,47 @@
                     </label>
                 </div>
             </div>
-            <button class="buttons other-background">ADD SELLER</button>
+            <button class="buttons other-background add-btnn">ADD SELLER</button>
         </div>
     </section>
 
-    <section class="background" id="edit-popup">
-        <div class="add-form">
+    <section class="background" data-id="" id="edit-popup">
+
+        <div class="add-form editt">
             <span class="close" id="edit-close">X</span>
             <h1>SELLER INFO</h1>
             <div>
                 <div>
                     <div class="column-direction">
-                        <span>Name:<span class="error" id="edit-name-error"></span></span>
+                        <span>Name:</span>
                         <input id="edit-name-input" type="text">
+                        <span class="error" id="edit-name-error"></span>
                     </div>
                     <div class="column-direction">
-                        <span>Username:<span class="error" id="edit-username-error"></span></span>
+                        <span>Username:</span>
                         <input id="edit-username-input" type="text">
+                        <span class="error" id="edit-username-error"></span>
                     </div>
-                    <div class="column-direction">
-                        <span>Password:<span class="error" id="edit-password-error"></span></span>
+                    <!-- <div class="column-direction">
+                        <span>Password:</span>
                         <input id="edit-password-input" type="password">
-                    </div>
+                        <span class="error" id="edit-password-error"></span>
+                    </div> -->
                     <div class="column-direction">
-                        <span>Email:<span class="error" id="edit-email-error"></span></span>
+                        <span>Email:</span>
                         <input id="edit-email-input" type="text">
+                        <span class="error" id="edit-email-error"></span>
                     </div>
                 </div>
                 <div class="column-direction">
                     <img id="edit-image-element" class="profile-picture" src="../images/svg/no-profile.svg" alt="">
                     <label class="buttons green-background">
                         <span id="edit-file-input-text" class="file-input-text">Edit profile picture</span>
-
-                        <input type="file" accept=".jpg, .png, .svg" id="image" />
+                        <input type="file" accept=".jpg, .png, .svg" id="image-edit" />
                     </label>
                 </div>
             </div>
-            <button class="buttons other-background">EDIT SELLER</button>
+            <button class="buttons other-background edit-btnn">EDIT SELLER</button>
         </div>
     </section>
 
@@ -126,7 +136,7 @@
                 </div>
                 <hr>
                 <div class="confirmation_alert_description">
-                    <p> Are You sure you want to delete?</p>
+                    <p id="text-alert"> Are You sure you want to delete?</p>
                 </div>
                 <div class="confirmation_alert_btns">
                     <button class="green" id="confirm-conf-popup">Confirm</button>
@@ -135,11 +145,24 @@
             </div>
         </div>
     </div>
-    <script src="../javascript/seller_list.js"></script>
-    <script src="../javascript/edit-seller.js"></script>
-    <script src="../javascript/alert_msgs.js"></script>
-    <script src="../javascript/api/edit_seller.js"></script>
 
+    <!-- <div class="confirmation-popup-container-ok">
+        <div class="confirmation_alert">
+            <div class="confirmation_alert_description">
+                <p id="msg"></p>
+            </div>
+            <div class="confirmation_alert_btns ok-btn">
+                <button class="green" id="confirm-conf-popup-ok">OK</button>
+            </div>
+        </div>
+    </div> -->
+    <script src="../javascript/seller_list.js"></script>
+    <script src="../javascript/alert_msgs.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="../javascript/validate_inputs.js"></script>
+    <script src="../javascript/api/list_seller_api.js"></script>
+    <script src="../javascript/api/add_seller.js"></script>
+    <script src="../javascript/api/edit_seller.js"></script>
 </body>
 
 </html>

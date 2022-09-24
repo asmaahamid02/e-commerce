@@ -25,19 +25,19 @@ if (
     if ($common->emailAndUsernameExist($username, $email)) {
         $response = $common->getRepsonse(0, null, 'Username/Email already existed!');
     } else {
-        $seller_images_path = $commom->getSellerPath();
-        $client_images_path = $commom->getClientPath();
+        $seller_images_path = $common->getSellerPath();
+        $client_images_path = $common->getClientPath();
 
         $image_name = '';
         $base64String = '';
         if ($profile_picture != '') {
-            $coded_image = $commom->convertToBase64($profile_picture);
+            $coded_image = $common->convertToBase64($profile_picture);
             $image_name = $coded_image['file_name'];
             $base64String = $coded_image['base64string'];
         }
 
         /*get type id of user */
-        $type_id = $commom->getUserTypeID($type);
+        $type_id = $common->getUserTypeID($type);
 
 
         $sql = 'INSERT INTO users(type_id,name,username,email,password,profile_picture,is_banned,is_deleted,created_at) 
