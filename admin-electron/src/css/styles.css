@@ -273,3 +273,7 @@ input[type='file'] {
   display: flex;
   justify-content: flex-end;
 }
+
+#text-alert {
+  text-align: center;
+}
