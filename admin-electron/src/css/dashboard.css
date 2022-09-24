@@ -47,6 +47,10 @@ body {
   color: #fff;
 }
 
+.account-username {
+  color: #707070;
+}
+
 a {
   text-decoration: none;
   color: inherit;

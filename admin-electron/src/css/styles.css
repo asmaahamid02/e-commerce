@@ -87,7 +87,7 @@ input {
   font-size: 18px;
 }
 
-.column-direction span {
+.column-direction + span {
   color: #808080;
 }
 
@@ -125,9 +125,15 @@ input[type='file'] {
 
 .error {
   color: red;
+  font-size: 12px;
+  text-align: left;
 }
 
-.file-input-text {
+#file-input-text {
+  color: white;
+}
+
+#edit-file-input-text{
   color: white;
 }
 
@@ -185,9 +191,10 @@ input[type='file'] {
 
 .confirmation_alert_description {
   font-size: 15px;
-  margin-top: 20px;
+  /* margin-top: 20px;
   margin-bottom: 20px;
-  margin-left: 30px;
+  margin-left: 30px; */
+  padding: 20px 10px;
 }
 
 .confirmation_alert_btns button {
@@ -240,23 +247,37 @@ input[type='file'] {
   width: 20%;
   height: 60px;
   align-self: center;
-  margin-top: 7px;
+  /* margin-top: 7px;
   margin-bottom: 7px;
-  margin-left: 50px;
+  margin-left: 50px; */
 }
 
 .success_msg {
   color: rgb(5, 113, 5);
-  font-size: 25px;
+  font-size: 20px;
   font-weight: 800;
+  text-align: center;
+}
+
+.error_msg {
+  color: #de3030;
+  font-size: 20px;
+  font-weight: 800;
+  text-align: center;
 }
 
 .sucess-msg-div {
   display: flex;
+  flex-direction: column;
   align-items: center;
+  justify-content: space-between;
 }
 
 .ok-btn {
   display: flex;
   justify-content: flex-end;
+}
+
+#text-alert {
+  text-align: center;
 }

@@ -1,32 +1,29 @@
 <?php
 include("connection.php");
+include("common.php");
 header('Access-Control-Allow-Origin: *');
 header('Access-Control-Allow-Methods: POST, GET, OPTIONS, PUT, DELETE');
 header('Access-Control-Allow-Headers: Origin, Content-Type, Accept, Authorization, X-Request-With');
 //PHP to get a specific seller's info
+$common = new Common();
+$response = [];
+if (isset($_GET['id'])) {
+    $id = $_GET['id'];
+    $sql = 'SELECT * from users where id = ? and is_deleted = 0';
+    $stmt = $connection->prepare($sql);
+    $stmt->bind_param('i', $id);
+    $stmt->execute();
+    $result = $stmt->get_result();
 
-if (isset($_GET["seller_id"])) {
+    if ($result->num_rows > 0) {
+        $response = $common->getRepsonse(1, [$result->fetch_assoc()], 'Success');
 
-    $seller_id = $_GET['seller_id'];
-
-    $sql_query = "
-    SELECT users.id seller_id, users.username seller_username, users.name seller_name, users.email seller_email, users.profile_picture seller_pp, users.created_at seller_join_date
-    FROM users, user_types
-    WHERE user_types.id = users.type_id AND users.id=$seller_id";
-
-    $query = $connection->prepare($sql_query);
-    $query->execute();
-    $array = $query->get_result();
-
-    $response = [];
-
-    while ($a = $array->fetch_assoc()) {
-        $response[] = $a;
+        $stmt->close();
+    } else {
+        $response = $common->getRepsonse(0, null, 'Not Found');
     }
-
-    $json = json_encode($response);
-    echo $json;
+} else {
+    $response = $common->getRepsonse(0, null, 'Not enough data submitted');
 }
 
-
-?>
+echo json_encode($response);

@@ -9,7 +9,7 @@ $user_type = 'seller';
 $sql_query = "
 SELECT users.id seller_id, users.username seller_username, users.name seller_name, users.email seller_email, users.profile_picture seller_pp, users.created_at seller_join_date
 FROM users, user_types
-WHERE user_types.id = users.type_id AND user_types.type='$user_type'";
+WHERE user_types.id = users.type_id AND user_types.type='$user_type' and users.is_deleted = 0 order by users.created_at desc";
 
 $query = $connection->prepare($sql_query);
 $query->execute();

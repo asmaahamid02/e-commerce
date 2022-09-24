@@ -8,14 +8,14 @@ header('Access-Control-Allow-Headers: X-Requested-With');
 header('Content-Type: application/json');
 $common = new Common();
 if (
-  isset($_POST["id"], $_POST["name"], $_POST["username"], $_POST["email"], $_POST["password"])
+  isset($_POST["id"], $_POST["name"], $_POST["username"], $_POST["email"]/*, $_POST["password"]*/)
 ) {
   $id = $_POST["id"];
   $name = $_POST["name"];
   $username = $_POST["username"];
   $email = $_POST["email"];
-  $password = $_POST["password"];
-  $hashed_password = hash('sha256', $password) . 'team1';
+  // $password = $_POST["password"];
+  // $hashed_password = hash('sha256', $password) . 'team1';
   $profile_picture = isset($_POST['profile_picture']) ? $_POST['profile_picture'] : '';
   $created_at = date('Y-m-d H:i:s');
   $false_flag = 0;
@@ -24,6 +24,8 @@ if (
     if ($common->emailAndUsernameExistWithID($username, $email, $id)) {
       $response = $common->getRepsonse(0, null, 'Username/Email already existed!');
     } else {
+      $sql = 'UPDATE users set name = "' . $name . '",username = "' . $username .
+        '",email ="' . $email . '"';
       $seller_images_path = $common->getSellerPath();
       $client_images_path = $common->getClientPath();
 
@@ -35,10 +37,15 @@ if (
         $base64String = $coded_image['base64string'];
       }
 
-      $sql = 'UPDATE users set name = ?,username = ?,email =? ,password=?,profile_picture=? where id = ?';
+      if ($image_name !== '') {
+        $sql .= ' ,profile_picture= "' . $image_name . '"';
+      }
+
+      $sql .= ' where id = ' . $id;
+      // $sql = 'UPDATE users set name = ?,username = ?,email =?,profile_picture=? where id = ?';
 
       $stmt = $connection->prepare($sql);
-      $stmt->bind_param('sssssi', $name, $username, $email, $hashed_password, $image_name, $id);
+      // $stmt->bind_param('ssssi', $name, $username, $email, $image_name, $id);
       $result = $stmt->execute() or die($connection->error);
 
       if ($result) {

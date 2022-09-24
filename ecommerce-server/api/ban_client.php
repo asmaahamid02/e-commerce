@@ -1,27 +1,42 @@
 <?php
 include("connection.php");
+include("common.php");
 header('Access-Control-Allow-Origin: *');
 header('Access-Control-Allow-Methods: POST, GET, OPTIONS, PUT, DELETE');
 header('Access-Control-Allow-Headers: Origin, Content-Type, Accept, Authorization, X-Request-With');
 //PHP to ban a specific client
+$common = new Common();
+$response = [];
 
+if (isset($_GET["id"], $_GET['ban'])) {
 
-if (isset($_GET["client_id"])) {
+    $id = $_GET['id'];
+    $is_banned =  $_GET['ban'];
+    $sql = 'SELECT users.id from users 
+            inner join user_types on user_types.id = users.type_id
+            where users.id = ? and is_deleted = 0 and user_types.type = "client"';
+    $stmt = $connection->prepare($sql);
+    $stmt->bind_param('i', $id);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    $stmt->close();
 
-    $client_id = $_GET['client_id'];
+    if ($result->num_rows > 0) {
+        $sql = "UPDATE users SET `is_banned`= $is_banned WHERE `id` = ? ";
+        $stmt = $connection->prepare($sql);
+        $stmt->bind_param('i', $id);
 
-    $sql_query = "
-    UPDATE users
-    SET is_banned=1
-    WHERE users.id=$client_id";
-
-    $query = $connection->prepare($sql_query);
-    $query->execute();
-    $response = [];
-    $response['success'] = true;
-    echo json_encode($response);
+        if ($stmt->execute()) {
+            $response = $common->getRepsonse(1, null, 'Done Successfully');
+        } else {
+            $response = $common->getRepsonse(0, null, 'Could change!');
+        }
+        $stmt->close();
+    } else {
+        $response = $common->getRepsonse(0, null, 'Not Found');
+    }
+} else {
+    $response = $common->getRepsonse(0, null, 'Not enough data submitted');
 }
 
-
-
-?>
+echo json_encode($response);
