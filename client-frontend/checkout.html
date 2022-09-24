@@ -136,7 +136,7 @@
                 </div>
 
                 <div class="checkout-button">
-                    <button>Checkout</button>
+                    <button class="confirmation-popup-active">Checkout</button>
                 </div>
 
                 <div class="payment-mthds">
@@ -155,6 +155,29 @@
 
         </div>
     </div>
+    <!-- START confirmation popup for checkout -->
+    <div id="alert">
+        <div class="confirmation-popup-container">
+            <div class="confirmation_alert">
+                <div class="title_confirmation_alert">
+                    <img class="red-alert-icon" src="./assets/images/alert_icon_red.png">
+                    <p>Confirm dialog</p>
+                </div>
+                <hr>
+                <div class="confirmation_alert_description">
+                    <p> Please confirm your order</p>
+                </div>
+                <div class="confirmation_alert_btns">
+                    <button class="green" id="confirm-conf-popup">Confirm</button>
+                    <button class="red" id="cancel-conf-popup">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- END confirmation popup for checkout -->
+
+
+
 
     <!-- ! START Edit profile Modal -->
     <div class="modal-bg">
