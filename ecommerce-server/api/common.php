@@ -90,7 +90,7 @@ class Common
     public function checkUser($id)
     {
         require("connection.php");
-        $sql = "SELECT * from users where id = ?";
+        $sql = "SELECT * from users where id = ? and is_deleted = 0";
         $stmt = $connection->prepare($sql);
         $stmt->bind_param('i', $id);
         $stmt->execute();
