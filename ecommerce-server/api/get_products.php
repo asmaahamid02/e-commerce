@@ -10,20 +10,19 @@ $common = new Common();
 
 $response = array();
 
-if (isset($_POST['id'])) {
+if (isset($_GET['id'])) {
 
-    $seller_id = $_POST['id'];
+    $seller_id = $_GET['id'];
 
     $sql = 'SELECT products.*, categories.category from products 
     inner join categories on categories.id = products.categorie_id
     inner join users on users.id = categories.seller_id
-    where categories.seller_id = ?';
+    where categories.seller_id = ? and products.is_deleted = 0';
 
     $stmt = $connection->prepare($sql);
     $stmt->bind_param('i', $seller_id);
     $stmt->execute();
     $result = $stmt->get_result();
-    print_r($result);
     $response = array();
     if ($result) {
         if ($result->num_rows > 0) {
