@@ -29,6 +29,7 @@ nav{
     position: fixed;
     z-index: 20;
     background-color: #64C5B1;
+    padding-right: 40px;
 }
 
 #checkbox_burger_menu{
@@ -43,6 +44,7 @@ i{
 nav .logo{
     flex:1;
     margin-left: 50px;
+    margin-right: 10px;
 
 }
 
@@ -105,6 +107,46 @@ nav ul li a:hover{
 nav .menu{
     font-size: 30px;
     display: none;
-    
+}
+
+
+/* Media queries */
+@media(max-width:1000px){
+    .search-box button{
+        position: absolute;
+    }
+
+    nav ul{
+        position:fixed;
+        top:100px;
+        background-color: #323246;
+        height: calc(100vh -100px);
+        /* height: 50vh; */
+        width: 55%;
+        flex-direction: column;
+        align-items: center;
+        transition: right 0.5s linear;
+        right:-100%;
+    }
+
+    nav ul li{
+        padding: 48px;
+    }
+
+    nav .menu{
+        display: block;
+        width: 100px;
+        text-align: center;
+    }
+
+    #checkbox_burger_menu:checked ~ ul{
+        right:0;
+    }
+}
+
+@media (max-width:600px){
+    nav ul{
+        width:100%;
+    }
 }
 
