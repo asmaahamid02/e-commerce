@@ -7,18 +7,48 @@ const username_message = document.querySelector('#input-username')
 const password_message = document.querySelector('#input-password')
 let valid_name, valid_password
 
+const login = async (data) => {
+  const response = await axios.post(
+    'http://localhost/e-commerce/ecommerce-server/api/login_authorization.php',
+    data
+  )
+
+  console.log(response.data)
+
+  if (response.data.status && response.data.data) {
+    //success
+    const user = {
+      id: response.data.data.user_id,
+      username: response.data.data.username,
+      token: response.data.data.token,
+    }
+    console.log(user)
+    localStorage.setItem('user', JSON.stringify(user))
+
+    window.location.href = './dashboard.html'
+  } else {
+    //error
+    error_message.classList.remove('hide')
+    error_message.textContent = response.data.message
+  }
+}
 login_form.addEventListener('submit', (e) => {
   e.preventDefault()
 
   if (valid_name && valid_password) {
+    let formData = new FormData()
+    formData.append('user_indentifier', username.value)
+    formData.append('password', password.value)
     //submit
     error_message.classList.add('hide')
     error_message.textContent = ''
-    window.location.href = './dashboard.html'
+    login(formData)
   } else {
     //prevented
     error_message.classList.remove('hide')
     error_message.textContent = 'Fill all the fields'
+
+    e.preventDefault()
   }
 })
 
