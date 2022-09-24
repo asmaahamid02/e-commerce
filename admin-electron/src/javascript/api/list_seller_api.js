@@ -120,6 +120,8 @@ const getSellers = async () => {
       })
     })
   } else {
+    const row = `<tr><td colspan="4">${data.message}</td></tr>`
+    clients_table.innerHTML += row
   }
 }
 getSellers()
