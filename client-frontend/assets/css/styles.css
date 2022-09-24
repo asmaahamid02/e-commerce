@@ -1,3 +1,6 @@
+/* #64C5B1 : green
+#323246: dark back */
+
 /* CSS Reset */
 * {
     padding: 0;
@@ -16,9 +19,6 @@
     width:70px;
     height: 70px;
 }
-
-/* #64C5B1 : green
-#323246: dark back */
 
 nav{
     width: 100%;
@@ -49,7 +49,6 @@ nav .logo{
 }
 
 nav .search-box{
-    /* flex: 1; */
     position: relative;
     width: 60%;
 
@@ -57,7 +56,6 @@ nav .search-box{
 
 .search-box input{
     width: 100%;
-    /* width: 60vw; */
     height: 50px;
     border: none;
     outline: none;
@@ -121,7 +119,6 @@ nav .menu{
         top:100px;
         background-color: #323246;
         height: calc(100vh -100px);
-        /* height: 50vh; */
         width: 55%;
         flex-direction: column;
         align-items: center;
@@ -147,6 +144,14 @@ nav .menu{
 @media (max-width:600px){
     nav ul{
         width:100%;
+    }
+
+    nav .logo{
+        margin-left:5px;
+    }
+
+    nav{
+        padding:0;
     }
 }
 
