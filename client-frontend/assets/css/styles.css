@@ -232,19 +232,13 @@ footer p {
 
 /* Page Title */
 .pagetitle {
-    /* border: 2px solid red; */
     text-align: center;
     color: #64C5B1;
     font-size: 30px;
 }
 
 /* Products section */
-.page-content {
-    /* border: 2px solid red; */
-}
-
 .product_cards_container {
-    /* border: 2px solid blue; */
     display: flex;
     flex-wrap: wrap;
     width: 100%;
@@ -303,7 +297,6 @@ footer p {
 }
 
 .price_and_heart {
-    /* border: 2px solid red; */
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -345,7 +338,6 @@ footer p {
 /* Sellers section */
 
 .sellers-card-container {
-    /* border: 2px solid purple; */
     display: flex;
     flex-wrap: wrap;
     padding-left: 7%;
@@ -356,7 +348,6 @@ footer p {
 
 .seller-card {
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.5);
-    /* border: 2px solid blue; */
     width: 300px;
     display: flex;
     align-items: center;
@@ -374,7 +365,6 @@ footer p {
 
 .seller-photo-background {
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
-    /* border: 2px solid #64C5B1; */
     width: 50px;
     height: 50px;
     border-radius: 50px;
@@ -390,7 +380,7 @@ footer p {
     font-weight: 600;
 }
 
-/* View all link */
+/* View all - link */
 .view-all {
     margin-bottom: 50px;
     padding: 15px;
