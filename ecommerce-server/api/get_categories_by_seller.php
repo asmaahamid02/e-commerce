@@ -10,9 +10,9 @@ $common = new Common();
 
 $response = array();
 
-if (isset($_POST['id'])) {
+if (isset($_GET['id'])) {
 
-    $seller_id = $_POST['id'];
+    $seller_id = $_GET['id'];
 
     $sql = 'SELECT users.id, category, categories.created_at from users 
     inner join categories on categories.seller_id = users.id
@@ -22,9 +22,9 @@ if (isset($_POST['id'])) {
     $stmt->bind_param('i', $seller_id);
     $stmt->execute();
     $result = $stmt->get_result();
-    print_r($result);
+
     $response = array();
-    if ($result) {
+    if ($result->num_rows > 0) {
         if ($result->num_rows > 0) {
             //data found
             $data = [];
