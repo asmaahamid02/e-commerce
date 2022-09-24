@@ -13,25 +13,6 @@ function addRow(name, username, profile_picture, is_banned){
     attribute.textContent = "@" + username
     row.appendChild(attribute)
 
-    // adding profile picture if it exisits
-    // attribute = document.createElement("td")
-    // const profile = document.createElement("img")
-    // if(profile_picture){
-    //     profile.src = profile_picture
-    // }else{
-    //     profile.src = "../images/svg/profile-svgrepo-com.svg"
-    // }
-    // attribute.appendChild(profile)
-    // row.appendChild(attribute)
-
-    // adding edit icon
-    // attribute = document.createElement("td")
-    // let icon = document.createElement("i")
-    // icon.classList.add("fa")
-    // icon.classList.add("fa-pencil")
-    // attribute.appendChild(icon)
-    // row.appendChild(attribute)
-
     // adding if user is banned information
     attribute = document.createElement("td")
     const ban = document.createElement("a")
@@ -39,6 +20,7 @@ function addRow(name, username, profile_picture, is_banned){
     const ban_icon = document.createElement("img")
     ban_icon.src = "../images/svg/ban-svgrepo-com.svg"
     ban_icon.style.cursor = "pointer"
+    // ban_icon.classList.add("ban-icons")
     ban.appendChild(ban_icon)
     attribute.appendChild(ban)
     row.appendChild(attribute)
