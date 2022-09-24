@@ -8,27 +8,45 @@ const description_conf_popup = document.querySelector(
 )
 
 //Success message div
-const successMsg = () => {
+const successMsg = (msg) => {
   let success_msg_html = `            
     <div class="sucess-msg-div">
-    <img class="success" src="./assets/images/green_check_mark.png">
-    <p class="success_msg">Sucess</p>
+    <img class="success" src="../images/png/green_check_mark.png">
+    <p class="success_msg">${msg}</p>
     </div> `
   description_conf_popup.innerHTML = success_msg_html
 }
 
-const confirmation = (button) => {
-  let confirm = false
-  button.addEventListener('click', function () {
-    if (button == confirmPopupBtn) {
-      confirm = true
-    } else {
-      confirm = false
-    }
-  })
-  return confirm
+const errorMsg = (msg) => {
+  let error_msg_html = `            
+  <div class="sucess-msg-div">
+    <img class="success" src="../images/png/alert_icon_red.png">
+    <p class="error_msg">${msg}</p>
+    </div> `
+  description_conf_popup.innerHTML = error_msg_html
 }
+
 const triggerAlert = () => {
   popUpBg.classList.add('bg-active')
   return true
+}
+
+cancelPopupBtn.addEventListener('click', function () {
+  popUpBg.classList.remove('bg-active')
+})
+
+const displaySuccessMsg = (msg) => {
+  successMsg(msg)
+
+  setTimeout(function () {
+    window.location.reload()
+  }, 1500)
+}
+
+const displayErrorMsg = (msg) => {
+  errorMsg(msg)
+
+  setTimeout(function () {
+    window.location.reload()
+  }, 1500)
 }
