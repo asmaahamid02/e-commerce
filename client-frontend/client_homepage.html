@@ -39,58 +39,29 @@
     </nav>
     <!-- END Nav bar section -->
 
-    <!-- !START ads carousel part -->
-    <div class="slider">
-        <div class="slides">
-            <!-- START radio buttons -->
-            <!-- TODO append radio button here from js when adding an ad (add div first ) -->
-            <input type="text" name="radio-btn" id="radio1">
-            <input type="text" name="radio-btn" id="radio2">
-            <input type="text" name="radio-btn" id="radio3">
-            <input type="text" name="radio-btn" id="radio4">
-            <!-- END radio buttons -->
 
-            <!-- START slide images -->
-            <div class="slide first">
-                <img src="./assets/images/carousel_test_1.jpg">
-            </div>
-
-            <div class="slide">
-                <img src="./assets/images/carousel_test_2.jpg">
-            </div>
-
-            <div class="slide">
-                <img src="./assets/images/carousel_test_3.jpg">
-            </div>
-
-            <div class="slide">
-                <img src="./assets/images/carousel_test_4.jpg">
-            </div>
-            <!-- END slide images -->
-
-            <!-- START automatic navigation -->
-            <div class="navigation-auto">
-                <div class="auto-btn1"></div>
-                <div class="auto-btn2"></div>
-                <div class="auto-btn3"></div>
-                <div class="auto-btn4"></div>
-            </div>
-            <!-- END automatic navigation -->
-
-            <!-- START manual navigation -->
-            <div class="navigation-manual">
-                <label for="'radio1" class="manual-btn"></label>
-                <label for="'radio2" class="manual-btn"></label>
-                <label for="'radio3" class="manual-btn"></label>
-                <label for="'radio4" class="manual-btn"></label>
-            </div>
-            <!-- END manual navigation -->
-
-        </div>
+    <!-- START page content -->
+    <div class="page-content">
+        <!-- !START ads carousel part -->
+        <section class="slider-wrapper">
+            <button class="slide-arrow" id="slide-arrow-prev">
+                &#8249;
+            </button>
+            <button class="slide-arrow" id="slide-arrow-next">
+                &#8250;
+            </button>
+            <ul class="slides-container" id="slides-container">
+                <li class="slide"></li>
+                <li class="slide"></li>
+                <li class="slide"></li>
+                <li class="slide"></li>
+            </ul>
+            <!-- !END ads carousel part -->
     </div>
-    <!-- !END ads carousel part -->
+    <!-- END page content -->
 
 
+    </section>
 
 
     <!-- START footer -->
@@ -98,6 +69,7 @@
         <p>Copyright &copy; 2022 CONQUER</p>
     </footer>
     <!-- END footer -->
+    <script src="./assets/javascript/script.js"></script>
 </body>
 
 </html>
