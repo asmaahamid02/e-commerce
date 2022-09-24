@@ -1,4 +1,4 @@
-const table = document.querySelector(".sellers-table")
+const table = document.querySelector(".table")
 getClients()
 
 function addRow(name, username, profile_picture, is_banned){
@@ -14,27 +14,33 @@ function addRow(name, username, profile_picture, is_banned){
     row.appendChild(attribute)
 
     // adding profile picture if it exisits
-    attribute = document.createElement("td")
-    const profile = document.createElement("img")
-    if(profile_picture){
-        profile.src = profile_picture
-    }else{
-        profile.src = "../images/svg/profile-svgrepo-com.svg"
-    }
-    attribute.appendChild(profile)
-    row.appendChild(attribute)
+    // attribute = document.createElement("td")
+    // const profile = document.createElement("img")
+    // if(profile_picture){
+    //     profile.src = profile_picture
+    // }else{
+    //     profile.src = "../images/svg/profile-svgrepo-com.svg"
+    // }
+    // attribute.appendChild(profile)
+    // row.appendChild(attribute)
 
     // adding edit icon
-    attribute = document.createElement("td")
-    let icon = document.createElement("i")
-    icon.classList.add("fa")
-    icon.classList.add("fa-pencil")
-    attribute.appendChild(icon)
-    row.appendChild(attribute)
+    // attribute = document.createElement("td")
+    // let icon = document.createElement("i")
+    // icon.classList.add("fa")
+    // icon.classList.add("fa-pencil")
+    // attribute.appendChild(icon)
+    // row.appendChild(attribute)
 
     // adding if user is banned information
     attribute = document.createElement("td")
-    attribute.textContent = is_banned ? "Unban Client" : "Ban Client"
+    const ban = document.createElement("a")
+    ban.classList.add("delete-icon")
+    const ban_icon = document.createElement("img")
+    ban_icon.src = "../images/svg/ban-svgrepo-com.svg"
+    ban_icon.style.cursor = "pointer"
+    ban.appendChild(ban_icon)
+    attribute.appendChild(ban)
     row.appendChild(attribute)
 
     return row
