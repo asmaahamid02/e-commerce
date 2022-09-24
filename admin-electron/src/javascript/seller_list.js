@@ -1,6 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
   const add_button = document.getElementById('add-button')
-  const edit_button = document.querySelector('.actions>a:nth-child(1)')
   const add_popup = document.querySelector('#add-popup')
   const edit_popup = document.querySelector('#edit-popup')
   const exit_add_form = document.getElementById('add-close')
@@ -32,10 +31,6 @@ document.addEventListener('DOMContentLoaded', () => {
   // show popup for seller info and change buttons from edit to add
   add_button.addEventListener('click', () => {
     resetForm(add_popup)
-  })
-
-  edit_button.addEventListener('click', () => {
-    resetForm(edit_popup)
   })
 
   window.onclick = function (event) {
