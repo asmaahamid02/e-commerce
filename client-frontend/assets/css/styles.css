@@ -449,7 +449,7 @@ footer p {
 }
 
 .input-fields input{
-    height:15%;
+    height:50px;
     border-radius: 10px;
     padding-left: 10px;
 }
@@ -474,10 +474,7 @@ footer p {
     cursor: pointer;
 }
 
-
 /* !END EDIT PROFILE MODAL */
-
-
 
 /* Media queries */
 @media(max-width:1000px) {
@@ -521,6 +518,10 @@ footer p {
         margin-left: 0;
     }
 
+    .modal{
+        width:50%;
+    }
+
 }
 
 @media(max-width:750px) {
@@ -528,6 +529,9 @@ footer p {
     /* for product cards */
     .card {
         width: 100%;
+    }
+    .modal{
+        width:70%;
     }
 }
 
@@ -548,4 +552,10 @@ footer p {
         width: 100%;
         margin-left: 0;
     }
+
+    .modal{
+        width:100%;
+        /* height:9vh; */
+    }
+
 }
