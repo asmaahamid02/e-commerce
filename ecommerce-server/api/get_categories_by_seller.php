@@ -14,7 +14,7 @@ if (isset($_GET['id'])) {
 
     $seller_id = $_GET['id'];
 
-    $sql = 'SELECT users.id, category, categories.created_at from users 
+    $sql = 'SELECT categories.id category_id, users.id, category, categories.created_at from users 
     inner join categories on categories.seller_id = users.id
     where categories.seller_id = ? order by categories.created_at desc';
 
