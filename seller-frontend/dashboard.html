@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../admin-electron/src/css/dashboard.css">
+    <title>Dasboard Menu</title>
+</head>
+
+<body>
+    <!-- start of dashboard menu -->
+    <section class="sidebar">
+        <a href="dashboard.html" class="logo"><img src="../admin-electron/src/images/png/logo2.png" alt=""></a>
+        <div class="account-profile">
+            <img src="../admin-electron/src/images/svg/no-profile.svg" alt="">
+            <div class="account-details">
+                <span class="account-name">Asmaa Hamid</span>
+                <span class="account-username">@asmaahamid</span>
+            </div>
+        </div>
+        <ul class="sidebar--items">
+            <li class="sidebar-item active" data-page="statistics.html" data-title="Statistics"><a href=""><img
+                        src="../admin-electron/src/images/svg/dashboard-svgrepo-com.svg">Dashboard</a>
+            </li>
+            <li class="sidebar-item" data-page="clients_list.html" data-title=" Customers"><a href=""><img
+                        src="./assets/images/svg/category-new-each-svgrepo-com.svg">Categories</a></li>
+            <li class="sidebar-item" data-page="products_list.html" data-title="Products"><a href=""><img
+                        src="./assets/images/svg/shopping-bag-svgrepo-com.svg">Products</a></li>
+            <li class="sidebar-item" data-page="discount_codes_list.html" data-title="Discount Codes"><a href=""><img
+                        src="./assets/images/svg/discount-svgrepo-com.svg">Discount Codes</a></li>
+            <li class="sidebar-item" data-page="ads_list.html" data-title="Ads"><a href=""><img
+                        src="./assets/images/svg/promotion-svgrepo-com.svg">Ads</a></li>
+
+        </ul>
+    </section>
+    <!--end of dashboard menu -->
+    <section class="section2">
+        <iframe id="frame" src="statistics.html" frameborder="0"></iframe>
+    </section>
+    </section> -->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="../admin-electron/src/javascript/dashboard.js" type="text/javascript"></script>
+</body>
+
+</html>
