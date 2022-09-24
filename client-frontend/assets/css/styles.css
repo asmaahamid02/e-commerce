@@ -749,12 +749,12 @@ footer p {
     border: none;
 }
 
-.green:hover {
+.green-popup:hover {
     background-color: rgba(5, 113, 5, 0.5);
     border: none;
 }
 
-.green {
+.green-popup {
     border: 2px solid rgb(5, 113, 5);
     color: rgb(5, 113, 5);
 }
