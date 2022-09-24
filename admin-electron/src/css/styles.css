@@ -127,7 +127,11 @@ input[type='file'] {
   color: red;
 }
 
-.file-input-text {
+#file-input-text {
+  color: white;
+}
+
+#edit-file-input-text{
   color: white;
 }
 
