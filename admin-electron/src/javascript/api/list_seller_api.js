@@ -109,7 +109,7 @@ const getSellers = async () => {
     delete_icons.forEach((deleteicon) => {
       deleteicon.addEventListener('click', () => {
         // console.log(icon)
-        if (triggerAlert()) {
+        if (triggerAlert('Are you sure you want to delete this user?')) {
           confirmPopupBtn.addEventListener('click', function () {
             deleteSeller(deleteicon.dataset.id)
           })
