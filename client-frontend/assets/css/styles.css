@@ -597,11 +597,102 @@ footer p {
 }
 
 .checkout-card{
-    border: 2px solid red;
+    /* border: 2px solid red; */
     box-shadow: rgba(0, 0, 0, 0.2) 0px 3px 8px;
     width:90%;
     margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    padding:30px;
+    margin-bottom: 50px;
 }
+
+.checkout-discount{
+    /* border: 2px solid blue; */
+    width: 100%;
+    height:50px;
+}
+.checkout-discount input{
+    width:80%;
+    height: 100%;
+    border-radius: 5px;
+    padding-left: 15px;
+    font-size: 20px;
+}
+.checkout-discount button{
+    width:18%;
+    height:100%;
+    border: none;
+    background-color: #64C5B1;
+    font-size: 20px;
+    color: white;
+    border-radius: 10px;
+    cursor: pointer;
+
+}
+.checkout-total, .checkout-subtotal, .checkout-delivery{
+    /* border: 2px solid green; */
+    margin-top: 20px;
+    height:50px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    font-size: 30px;
+    font-weight: 600;
+}
+
+.checkout-button{
+    /* border: 2px solid purple; */
+
+    height:50px;
+    width: 30%;
+    margin: 0 auto;
+    margin-top: 8px;
+    margin-bottom: 8px;
+
+
+    
+}
+
+.checkout-button button{
+    width:100%;
+    height:100%;
+    font-size: 25px;
+    background-color: #64C5B1;
+    border: none;
+    color: white;
+    border-radius: 10px;
+    cursor: pointer;
+    /* font-weight: 600; */
+}
+
+.checkout-subtotal{
+    /* border: 2px solid purple; */
+}
+
+.checkout-delivery{
+    /* border: 2px solid greenyellow; */
+}
+
+/* .checkout-button{
+    border: 2px solid lightpink;
+} */
+
+/* .payment-mthds{
+    border: 2px solid red;
+} */
+.payment-mthds p{
+    font-size: 30px;
+    font-weight: 600;
+
+}
+
+.payment-icons i {
+    /* border: 100px solid red; */
+    color: #323246;
+    font-size: 60px;
+}
+
 
 /* saved items page */
 .margin-top {
@@ -656,6 +747,9 @@ footer p {
 
     .card-checkout{
         width:100%;
+    }
+    .checkout{
+        width: 100%;
     }
 
 }
