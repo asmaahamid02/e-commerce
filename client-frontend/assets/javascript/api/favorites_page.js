@@ -1,6 +1,5 @@
 const cardsContainer = document.querySelector('.product_cards_container')
-// const id = JSON.parse(localStorage.getItem('user')).id
-const id=5;
+const id = JSON.parse(localStorage.getItem('user')).id
 getAllFavorites()
 
 async function getAllFavorites() {
