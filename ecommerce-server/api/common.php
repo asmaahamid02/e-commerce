@@ -195,4 +195,26 @@ class Common
 
         return $data;
     }
+
+    public function getDiscount($code)
+    {
+        require("connection.php");
+        $sql = "SELECT id,percentage from discounts       
+                where code = ?";
+        $stmt = $connection->prepare($sql);
+        $stmt->bind_param('s', $code);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        $data = [];
+        if ($result->num_rows > 0) {
+            $row = $result->fetch_assoc();
+            $data['id'] = $row['id'];
+            $data['percentage'] = $row['percentage'];
+        }
+        $stmt->close();
+        $connection->close();
+
+        return $data;
+    }
 }

@@ -18,7 +18,7 @@ if (
             if ($common->checkOpennedCart($client_id)) {
                 //append items to the oppened cart
                 $cart_id = $common->checkOpennedCart($client_id);
-                $response = $common->getRepsonse(1, $cart_id, 'Found Cart');
+                // $response = $common->getRepsonse(1, $cart_id, 'Found Cart');
             } else {
                 //create new cart
                 $sql = "INSERT into carts (client_id, created_at) VALUES ($client_id, NOW())";
