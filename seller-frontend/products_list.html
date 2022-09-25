@@ -90,39 +90,44 @@
 
         <div class="add-form editt">
             <span class="close" id="edit-close">X</span>
-            <h1>SELLER INFO</h1>
+            <h1>Product Info</h1>
             <div>
                 <div>
                     <div class="column-direction">
-                        <span>Name:</span>
+                        <span>Category:</span>
+                        <select name="category" id="edit-category"></select>
+                    </div>
+                    <div class="column-direction">
+                        <span>Title:</span>
                         <input id="edit-name-input" type="text">
                         <span class="error" id="edit-name-error"></span>
                     </div>
                     <div class="column-direction">
-                        <span>Username:</span>
+                        <span>Price:</span>
                         <input id="edit-username-input" type="text">
                         <span class="error" id="edit-username-error"></span>
                     </div>
-                    <!-- <div class="column-direction">
-                        <span>Password:</span>
-                        <input id="edit-password-input" type="password">
-                        <span class="error" id="edit-password-error"></span>
-                    </div> -->
                     <div class="column-direction">
-                        <span>Email:</span>
-                        <input id="edit-email-input" type="text">
+                        <span>Quantity:</span>
+                        <input id="edit-password-input" type="text">
+                        <span class="error" id="edit-password-error"></span>
+                    </div>
+                    <div class="column-direction">
+                        <span>Description:</span>
+                        <textarea id="edit-email-input" rows="5"></textarea>
                         <span class="error" id="edit-email-error"></span>
                     </div>
                 </div>
                 <div class="column-direction">
-                    <img id="edit-image-element" class="profile-picture" src="../images/svg/no-profile.svg" alt="">
+                    <img style="border-radius:5px" id="edit-image-element" class="profile-picture"
+                        src="../images/svg/no-profile.svg" alt="">
                     <label class="buttons green-background">
-                        <span id="edit-file-input-text" class="file-input-text">Edit profile picture</span>
+                        <span id="edit-file-input-text" class="file-input-text">Edit picture</span>
                         <input type="file" accept=".jpg, .png, .svg" id="image-edit" />
                     </label>
                 </div>
             </div>
-            <button class="buttons other-background edit-btnn">EDIT SELLER</button>
+            <button class="buttons other-background edit-btnn">EDIT PRODUCT</button>
         </div>
     </section>
 
