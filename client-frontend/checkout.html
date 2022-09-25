@@ -60,28 +60,6 @@
                 <h1>MY BAG</h1>
             </div>
 
-
-            <div class="saved-product">
-                <div class="saved-product-img">
-                    <img src="./assets/images/dummy_product_pic.jpg">
-                </div>
-                <div class="saved-product-details">
-                    <h3>Title</h3>
-                    <p class="description"> product description product description product description</p>
-
-                    <div class="price-quantity">
-                        <h6>$<span class="product_price">1000</span></h6>
-                        <div class="quantity">
-                            <label for="quantity">Qty</label>
-                            <input type="number" name="quantity">
-                        </div>
-                    </div>
-
-                    <button class="save-changes-checkout">Save</button>
-                </div>
-            </div>
-
-
             <!-- ! START another card item used for testing -->
             <div class="saved-product">
                 <div class="saved-product-img">
@@ -112,47 +90,33 @@
             <div class="pagetitle">
                 <h1> CHECKOUT</h1>
             </div>
-
             <div class="checkout-card">
-
                 <div class="checkout-discount">
                     <input type="text" placeholder="Discount code">
                     <button>Apply</button>
                 </div>
-
                 <div class="checkout-total">
-                    <p>Total</p>
-                    <p>$<span>100.00</span></p>
-                </div>
 
+                </div>
                 <div class="checkout-subtotal">
-                    <p>Subtotal</p>
-                    <p>$<span>100.00</span></p>
-                </div>
 
+                </div>
                 <div class="checkout-delivery">
                     <p>Delivery</p>
                     <p>Free</p>
                 </div>
-
                 <div class="checkout-button">
                     <button class="confirmation-popup-active">Checkout</button>
                 </div>
-
                 <div class="payment-mthds">
                     <p>We accept</p>
-
                     <div class="payment-icons">
                         <i class="fa-brands fa-cc-mastercard"></i>
                         <i class="fa-brands fa-cc-paypal"></i>
                         <i class="fa-brands fa-cc-visa"></i>
-
                     </div>
-
                 </div>
-
             </div>
-
         </div>
     </div>
     <!-- START confirmation popup for checkout -->
@@ -202,10 +166,12 @@
 <!--! END Edit Profile Modal -->
 
     <!-- START footer -->
-    <footer>
+    <!-- <footer>
         <p>Copyright &copy; 2022 CONQUER</p>
-    </footer>
+    </footer> -->
     <!-- END footer -->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="./assets/javascript/api/cart.js"></script>
     <script src="./assets/javascript/checkout.js"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="./assets/javascript/products_script.js"></script>

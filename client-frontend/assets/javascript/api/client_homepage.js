@@ -3,6 +3,7 @@ const id = JSON.parse(localStorage.getItem('user')).id
 const search = document.getElementById('search')
 getAllProducts()
 
+
 search.addEventListener('blur', () =>{
     const searchText = search.value
     cardsContainer.innerHTML = ''
@@ -46,8 +47,11 @@ async function getAllProducts() {
   const data = response.data.data
   for (const i of data) {
     cardsContainer.appendChild(
-      createCard(i.title, i.description, i.price, 'dummy_product_pic.jpg', i.id)
+      createCard(i.title, i.description, i.price, i.image, i.id)
     )
   }
   return data
 }
+
+getAllProducts()
+
