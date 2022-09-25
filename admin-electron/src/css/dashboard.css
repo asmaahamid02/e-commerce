@@ -64,7 +64,8 @@ ul {
   padding: 10px 5px;
 }
 
-.sidebar-item {
+.sidebar-item,
+.sidebar-item-logout {
   color: #fff;
   margin-bottom: 20px;
   cursor: pointer;
@@ -75,7 +76,8 @@ ul {
   color: #64c5b1;
 }
 
-.sidebar-item a > img {
+.sidebar-item a > img,
+.sidebar-item-logout a > img {
   width: 24px;
   height: 24px;
   filter: invert(37%) sepia(94%) saturate(380%) hue-rotate(118deg)

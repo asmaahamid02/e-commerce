@@ -1,12 +1,111 @@
 const data = [
-  { user: 'Asmaa Hamid', label: 'week1', revenue: 100000 },
-  { user: 'Asmaa Hamid', label: 'week2', revenue: 200000 },
-  { user: 'Asmaa Hamid', label: 'week3', revenue: 400000 },
-  { user: 'Asmaa Hamid', label: 'week4', revenue: 600000 },
+  // { user: 'Asmaa Hamid', label: 'week1', revenue: 10 },
+  // { user: 'Asmaa Hamid', label: 'week2', revenue: 20 },
+  // { user: 'Asmaa Hamid', label: 'week3', revenue: 40 },
+  // { user: 'Asmaa Hamid', label: 'week4', revenue: 60 },
 ]
+const user_id = JSON.parse(localStorage.getItem('user')).id
+const getRevenueWeek = async () => {
+  // data.push({ user: user_id, label: 'Last week', revenue: 50000 })
+
+  await axios
+    .get(
+      'http://localhost/e-commerce/ecommerce-server/api/seller_revenue.php?id=' +
+        user_id +
+        '&interval=week'
+    )
+    .then(
+      (response) => {
+        console.log(response.data)
+        if (response.data.status) {
+          //success
+          console.log(response.data.data)
+          data.push({
+            user: user_id,
+            label: 'Last week',
+            revenue: response.data.data,
+          })
+
+          console.log(data)
+        } else {
+          //error
+          alert(response.data.message)
+        }
+      },
+      (error) => {
+        console.log(error)
+      }
+    )
+}
+
+const getRevenueMonth = async () => {
+  // data.push({ user: user_id, label: 'Last week', revenue: 50000 })
+
+  await axios
+    .get(
+      'http://localhost/e-commerce/ecommerce-server/api/seller_revenue.php?id=' +
+        user_id +
+        '&interval=month'
+    )
+    .then(
+      (response) => {
+        console.log(response.data)
+        if (response.data.status) {
+          //success
+          console.log(response.data.data)
+          data.push({
+            user: user_id,
+            label: 'Last Month',
+            revenue: response.data.data,
+          })
+
+          console.log(data)
+        } else {
+          //error
+          alert(response.data.message)
+        }
+      },
+      (error) => {
+        console.log(error)
+      }
+    )
+}
+
+const getRevenueYear = async () => {
+  // data.push({ user: user_id, label: 'Last week', revenue: 50000 })
+
+  await axios
+    .get(
+      'http://localhost/e-commerce/ecommerce-server/api/seller_revenue.php?id=' +
+        user_id +
+        '&interval=year'
+    )
+    .then(
+      (response) => {
+        console.log(response.data)
+        if (response.data.status) {
+          //success
+          console.log(response.data.data)
+          data.push({
+            user: user_id,
+            label: 'Last Year',
+            revenue: response.data.data,
+          })
+
+          console.log(data)
+        } else {
+          //error
+          alert(response.data.message)
+        }
+      },
+      (error) => {
+        console.log(error)
+      }
+    )
+}
 
 const config = {
-  type: 'line',
+  type: 'bar',
   options: {
     tension: 0.4,
     scales: {
@@ -61,6 +160,12 @@ const createLineChart = (title, convas, data) => {
 }
 
 const best_seller_convas = document.querySelector('#seller-chart')
-const top_client_convas = document.querySelector('#client-chart')
-createLineChart('Best Seller', best_seller_convas, data)
-createLineChart('Top Client', top_client_convas, data)
+
+const getRevenue = async () => {
+  await getRevenueWeek()
+  await getRevenueMonth()
+  await getRevenueYear()
+
+  createLineChart('Revenue', best_seller_convas, data)
+}
+getRevenue()

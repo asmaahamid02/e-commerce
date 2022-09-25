@@ -57,8 +57,12 @@
                         <input id="username-input" type="text">
                         <span class="error" id="username-error"></span>
                     </div>
+                    <div class="column-direction">
+                        <span>Expiry:</span>
+                        <input id="password-input" type="date">
+                        <span class="error" id="password-error"></span>
+                    </div>
                 </div>
-
             </div>
             <button class="buttons other-background add-btnn">ADD DISCOUNT</button>
         </div>
@@ -88,7 +92,11 @@
     </form> -->
     <!-- end of adding discount section -->
     <!-- <script src="./assets/javascript/discount.js"></script> -->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="./assets/javascript/validate_inputs.js"></script>
     <script src="./assets/javascript/discount.js"></script>
+    <script src="./assets/javascript/api/discount_codes.js"></script>
+    <script src="./assets/javascript/api/add_discount.js"></script>
 </body>
 
 </html>

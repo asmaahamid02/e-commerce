@@ -23,6 +23,7 @@ submit_btn.addEventListener('click', () => {
     formData.append('category', category.value)
     addCategory(formData)
   } else {
+    return
   }
 })
 
