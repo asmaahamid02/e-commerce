@@ -40,28 +40,37 @@
     <!-- END Nav bar section -->
 
 
-    <!-- START page title -->
-    <div class="pagetitle margin-top">
-        <h1>PRODUCTS</h1>
-    </div>
-    <!-- END page title -->
+    <!-- START product  -->
+    <div class="single-product">
 
-
-    <!-- START Products section -->
-    <!-- To append to the below class in js when adding products -->
-    <div class="product_cards_container">
-        <div class="card">
-            <img src="./assets/images/dummy_product_pic.jpg">
-            <h3>Title</h3>
-            <p class="description"> product description product description product description</p>
-            <div class="price_and_heart">
-                <h6>$<span class="product_price">1000</span></h6>
-                <i class="fa-regular fa-heart green"></i>
+        <!-- left part -->
+        <div class="left-single-product">
+            <h1>Title</h1>
+            <h2>Price: 100.00$</h2>
+            <div class="single-product-page-seller">
+                <p>By seller</p>
             </div>
 
-            <button class="buy">Buy Now</button>
+            <div class="single-product-page-desc">
+                <p>description description description description description description description description
+                    description description description description</p>
+            </div>
+
+            <div class="single-product-page-btns">
+                <button class="single-product-btn green-back">Add to cart</button>
+                <button class="single-product-btn white-back">Add to favorites</button>
+            </div>
+
         </div>
+
+        <div class="single-product-page-img">
+            <img src="./assets/images/dummy_product_pic.jpg">
+        </div>
+
     </div>
+    <!-- END product  -->
+
+
 
 
     <!-- ! START Edit profile Modal -->
@@ -92,6 +101,9 @@
         <p>Copyright &copy; 2022 CONQUER</p>
     </footer>
     <!-- END footer -->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="./assets/javascript/api/common.js"></script>
+    <script src="./assets/javascript/api/single_product.js"></script>
     <script src="./assets/javascript/script.js"></script>
 </body>
 

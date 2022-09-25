@@ -29,7 +29,7 @@ if (isset($_GET["id"], $_GET['ban'])) {
         if ($stmt->execute()) {
             $response = $common->getRepsonse(1, null, 'Done Successfully');
         } else {
-            $response = $common->getRepsonse(0, null, 'Could change!');
+            $response = $common->getRepsonse(0, null, 'Could not change!');
         }
         $stmt->close();
     } else {

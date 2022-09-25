@@ -12,25 +12,24 @@ $response = array();
 
 if (isset($_GET['id'])) {
 
-    $seller_id = $_GET['id'];
+    $id = $_GET['id'];
 
-    $sql = 'SELECT categories.id category_id, users.id, category, categories.created_at from users 
-    inner join categories on categories.seller_id = users.id
-    where categories.seller_id = ? order by categories.created_at desc';
+    $sql = 'SELECT products.*, categories.category, categories.id as cat_id from products 
+    inner join categories on categories.id = products.categorie_id
+    inner join users on users.id = categories.seller_id
+    where products.id = ? and products.is_deleted = 0';
 
     $stmt = $connection->prepare($sql);
-    $stmt->bind_param('i', $seller_id);
+    $stmt->bind_param('i', $id);
     $stmt->execute();
     $result = $stmt->get_result();
-
     $response = array();
     if ($result) {
         if ($result->num_rows > 0) {
             //data found
             $data = [];
-            while ($row = $result->fetch_assoc()) {
-                $data[] = $row;
-            }
+            $row = $result->fetch_assoc();
+            $data[] = $row;
 
             $response = $common->getRepsonse(1, $data, 'Data returned successfully');
         } else {
