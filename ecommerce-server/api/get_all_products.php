@@ -7,7 +7,7 @@ header('Access-Control-Allow-Headers: Origin, Content-Type, Accept, Authorizatio
 
 $sql_query = "
 SELECT *
-FROM products";
+FROM products where is_deleted = 0 order by created_at desc limit 20";
 
 $query = $connection->prepare($sql_query);
 $query->execute();
