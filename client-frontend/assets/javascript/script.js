@@ -11,10 +11,11 @@ const modalSave = document.querySelector('.edit_profile_modal_save_btn');
 const client_name_input = document.getElementById('profile-input-name');
 const client_username_input = document.getElementById('profile-input-username');
 const client_email_input = document.getElementById('profile-input-email');
-//! To remove later on
-const client_id = 1;
-//!should be const user = JSON.parse(localStorage.getItem("user"));
-//! const client_id=user.id;
+
+const user_in_storage =JSON.parse(localStorage.getItem('user'));
+const client_id=user_in_storage.id;
+console.log(client_id);
+
 
 //For the Carousel
 nextButton.addEventListener("click", () => {
@@ -41,7 +42,7 @@ const data = new FormData();
 //When the Save button is clicked
 modalSave.addEventListener('click', function () {
     modalBg.classList.remove('bg-active');
-    data.append('client_id', 1);
+    data.append('client_id', client_id);
     data.append('edited_name', client_name_input.value);
     data.append('edited_username', client_username_input.value);
     data.append('edited_email', client_email_input.value);
