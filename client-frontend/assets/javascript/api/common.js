@@ -5,8 +5,6 @@ function createCard(title, description, price, image, id){
     newCard.classList.add('card')
     newCard.dataset.id = id
     newCard.addEventListener('click', (event) =>{
-        console.log(event.target.nodeName)
-        console.log(event.target.parentElement.parentElement.parentElement)
         if(event.target.nodeName == 'H6' || event.target.nodeName == 'I'){
             addViewers(event.target.parentElement.parentElement.dataset.id)
         }else if(event.target.nodeName == 'SPAN'){
