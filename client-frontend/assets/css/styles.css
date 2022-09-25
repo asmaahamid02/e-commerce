@@ -764,7 +764,6 @@ footer p {
     opacity: 1;
 }
 
-
 /* Success message after confirmation */
 .success {
     width: 20%;
@@ -776,12 +775,11 @@ footer p {
 
 }
 
-
 .success_msg {
     color: rgb(5, 113, 5);
     font-size: 25px;
     font-weight: 700;
-    margin-top: 10px ;
+    margin-top: 10px;
 }
 
 .sucess-msg-div {
@@ -791,16 +789,74 @@ footer p {
 }
 
 
-.small-instruction{
+.small-instruction {
     font-size: 7px;
     color: gray;
 }
 
-.sucess-msg-div  img {
+.sucess-msg-div img {
 
     width: 100px;
     height: 100px;
 }
+
+.single-product {
+    display: flex;
+    width: 100%;
+    margin: 40px auto;
+    height: auto;
+    padding-left: 10%;
+    padding-right: 10%;
+    margin-top: 200px;
+    flex-wrap:wrap-reverse;
+}
+
+.left-single-product {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
+}
+
+.single-product-page-img {
+    width: 50%;
+    padding: 20px;
+}
+
+.single-product-page-img img {
+    width: 80%;
+    height: 100%;
+}
+
+.left-single-product h1,
+h2,
+p {
+    margin-bottom: 20px;
+}
+
+.single-product-btn {
+    border-radius: 5px;
+    padding: 20px;
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+    margin-right: 10px;
+}
+
+.green-back {
+    background-color: #64C5B1;
+    color: white;
+}
+
+.white-back {
+    border: 2px solid #64C5B1;
+    color: #64C5B1;
+    background-color: white;
+}
+
+
+
+/* END Single product page */
 
 
 /* Media queries */
@@ -857,6 +913,8 @@ footer p {
         width: 100%;
     }
 
+
+
 }
 
 @media(max-width:750px) {
@@ -869,7 +927,35 @@ footer p {
     .modal {
         width: 70%;
     }
+
+    .left-single-product {
+        width: 100%;
+        margin-top: 0 !important;
+    }
+
+    .single-product-page-img {
+        width: 100%;
+    }
+
+    .single-product{
+        margin-top: 100px;
+    }
+
+    .single-product-page-img img {
+        width: 100%;
+    }
+
+    .left-single-product{
+        padding: 0;
+        justify-content: center;
+        align-items: center;
+    }
+    .single-product-btn{
+        width: 100%;
+        margin-bottom: 10px;
+    }
 }
+
 
 @media (max-width:600px) {
     nav ul {
