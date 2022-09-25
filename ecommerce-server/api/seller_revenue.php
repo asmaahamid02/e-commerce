@@ -57,8 +57,28 @@
         foreach($discounted as $value){
             $discountedPrice += $value['price'] * $value['percentage']/100 * $value['purchased_number'];
         }
+
+        // getting the quantity sold of each product and its price through the wishlist directly
+        $query = $connection->prepare('SELECT p.price, SUM(wi.quantity) AS purchased_number
+                                        FROM wishlists AS w, wishlist_items AS wi, products AS p, categories AS c
+                                        WHERE c.seller_id=? AND c.id=p.categorie_id AND p.id=wi.product_id AND wi.wishlist_id=w.id AND w.purchased_at>=?
+                                        GROUP BY p.id');
+        $query->bind_param('is', $id, $interval);
+        $query->execute();
+        $result = $query->get_result();
+
+        $wishlist = [];
+        while($value = $result->fetch_assoc()){
+            $wishlist[] = $value;
+        }
         
-        $final_price = $discountedPrice + $noDiscountPrice;
+        $wishlistPrice = 0;
+        foreach($wishlist as $value){
+            $wishlistPrice += $value['price'] * $value['purchased_number'];
+        }
+
+        // add the 3 revenues to get the total revenue of the seller
+        $final_price = $discountedPrice + $noDiscountPrice + $wishlistPrice;
         $response = $common->getRepsonse(1, $final_price, "query executed successfully");
 
         echo json_encode($response);
