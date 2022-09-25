@@ -179,7 +179,7 @@ body {
 .product-card {
   display: flex;
   flex-direction: column;
-  height: 45vh;
+  /* height: 45vh; */
   background-color: #fff;
   border-radius: 15px;
   align-items: center;

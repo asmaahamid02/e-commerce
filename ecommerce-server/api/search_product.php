@@ -8,8 +8,8 @@ header('Access-Control-Allow-Headers: Origin, Content-Type, Accept, Authorizatio
 $common = new Common();
 $response = [];
 if (isset($_GET['search_text'])) {
-    $search_text = $_GET['search_text'];
-    $sql = "SELECT * FROM products WHERE products.title LIKE CONCAT('%',?,'%')";
+    $search_text = '%' . $_GET['search_text'] . '%';
+    $sql = "SELECT * FROM products WHERE products.title LIKE ?";
     $stmt = $connection->prepare($sql);
     $stmt->bind_param('s', $search_text);
     $stmt->execute();
@@ -27,7 +27,7 @@ if (isset($_GET['search_text'])) {
             $response = $common->getRepsonse(1, $data, 'Data returned successfully');
         } else {
             //no data
-            $response = $common->getRepsonse(1, null, 'No data found');
+            $response = $common->getRepsonse(0, null, 'No data found');
         }
     } else {
         //error 
@@ -41,4 +41,3 @@ if (isset($_GET['search_text'])) {
 echo json_encode($response);
 
 $connection->close();
-?>

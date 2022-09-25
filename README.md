@@ -12,11 +12,32 @@
 <ul>
 <li>Admin Desktop
 <ul>
-<li>Navigate to admin-electron folder</li>
+<li>Navigate to admin-electron/dashboard.html folder</li>
 <li>run "npm install" command</li>
 <li>run "npm run start" command</li>
 </ul>
 </li>
-<li>Seller Website</li>
-<li>Client Website</li>
+<li>Seller Website
+<ul>
+<li>Navigate to seller-frontend/index.html folder</li>
 </ul>
+</li>
+<li>Client Website
+<ul>
+<li>Navigate to client-frontend/index.html folder</li>
+</ul>
+</li>
+</ul>
+
+<h3>Preview</h3>
+<h4>Client</h4>
+<img src="./images/1.png">
+<img src="./images/2.png">
+<img src="./images/3.png">
+<img src="./images/12.png">
+
+<h4>Admin/Seller</h4>
+<img src="./images/4.png">
+<img src="./images/7.png">
+<img src="./images/10.png">
+<img src="./images/11.png">

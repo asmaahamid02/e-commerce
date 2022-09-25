@@ -24,11 +24,10 @@
         </div>
 
         <ul id="burger-menu-ul">
-            <li><a href="#">Sellers</a></li>
-            <li><a href="./products.html">Products</a></li>
             <li id="edit-profile-icon"><a href="#"><i class="fa-solid fa-user"></i></a></li>
             <li><a href="./client_saved_items.html"><i class="fa-regular fa-heart"></i></a></li>
-            <li><a href="#"><i class="fa-solid fa-cart-shopping"></i></a></li>
+            <li><a href="./checkout.html"><i class="fa-solid fa-cart-shopping"></i></a></li>
+            <li><a href="#" id="logout"><i class="fa-solid fa-sign-out"></i></a></li>
         </ul>
 
         <div class="menu">
@@ -143,27 +142,27 @@
 
 
 
-   <!-- ! START Edit profile Modal -->
-   <div class="modal-bg">
-    <div class="modal">
-        <span class="modal-close">X</span>
-        <div class="input-fields">
-            <h2>Edit Profile</h2>
-            <!-- Name -->
-            <label for="name">Name</label>
-            <input id="profile-input-name" type="text" name="name">
-            <!-- Username -->
-            <label for="username">Username</label>
-            <input id="profile-input-username" type="text" name="username" >
-            <!-- Email -->
-            <label for="email">Email</label>
-            <input id="profile-input-email" type="text" name="email" >
-            <!-- Save changes button -->
-            <button class="edit_profile_modal_save_btn">Save changes</button>
+    <!-- ! START Edit profile Modal -->
+    <div class="modal-bg">
+        <div class="modal">
+            <span class="modal-close">X</span>
+            <div class="input-fields">
+                <h2>Edit Profile</h2>
+                <!-- Name -->
+                <label for="name">Name</label>
+                <input id="profile-input-name" type="text" name="name">
+                <!-- Username -->
+                <label for="username">Username</label>
+                <input id="profile-input-username" type="text" name="username">
+                <!-- Email -->
+                <label for="email">Email</label>
+                <input id="profile-input-email" type="text" name="email">
+                <!-- Save changes button -->
+                <button class="edit_profile_modal_save_btn">Save changes</button>
+            </div>
         </div>
     </div>
-</div>
-<!--! END Edit Profile Modal -->
+    <!--! END Edit Profile Modal -->
 
     <!-- START footer -->
     <!-- <footer>
@@ -175,7 +174,7 @@
     <script src="./assets/javascript/checkout.js"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="./assets/javascript/products_script.js"></script>
-    
+
 
 </body>
 
