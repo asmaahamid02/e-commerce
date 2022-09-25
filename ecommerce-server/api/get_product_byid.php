@@ -9,7 +9,7 @@ $common = new Common();
 $response = [];
 if (isset($_GET['id'])) {
     $id = $_GET['id'];
-    $sql = 'SELECT * from products where id = ?';
+    $sql = 'SELECT p.title, p.categorie_id, p.price, p.image, u.name, u.id from products AS p, categories AS c, users AS U where p.id = ? AND p.categorie_id=c.id AND c.seller_id=u.id';
     $stmt = $connection->prepare($sql);
     $stmt->bind_param('i', $id);
     $stmt->execute();
