@@ -804,26 +804,72 @@ footer p {
 
 /* START Single product page */
 
-.single-products-container{
-    border: 1px solid blue;
-}
+/* .single-products-container{
+    border: 5px solid blue;
+} */
 
-.single-product img{
+/* .single-product img{
     width:50px;
     height:50px;
-}
+} */
 
 .single-product{
-    border: 1px solid red;
+    /* border: 3px solid red; */
     display: flex;
+    width:100%;
+    margin:40px auto;
+    height:60vh;
+    padding-left: 10%;
+    padding-right: 10%;
+    margin-top:200px ;
 }
 
-
-
-.single-product-page-info{
-    border: 1px solid green;
+.left-single-product{
+    /* border: 3px solid green; */
     width: 50%;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: space-around; */
+    padding: 30px;
 }
+
+.single-product-page-img{
+    /* border: 3px solid yellow; */
+    width: 50%;
+    padding:20px;
+}
+
+.single-product-page-img img{
+    width:80%;
+    height:100%;
+}
+
+.left-single-product h1,h2,p{
+    margin-bottom: 20px;
+}
+
+.single-product-btn{
+    border-radius: 5px;
+    padding:20px;
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+    margin-right: 10px;
+}
+
+.green-back{
+background-color: #64C5B1;
+color: white;
+}
+
+.white-back{
+border: 2px solid #64C5B1;
+color: #64C5B1;
+background-color: white;
+}
+
+
+
 /* END Single product page */
 
 
