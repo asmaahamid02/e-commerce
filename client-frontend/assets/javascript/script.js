@@ -31,7 +31,6 @@ prevButton.addEventListener("click", () => {
 modalBtn.addEventListener('click', function () {
     modalBg.classList.add('bg-active');
     getProfile();
-
 })
 
 //When the X at the top left of the modal is clicked
