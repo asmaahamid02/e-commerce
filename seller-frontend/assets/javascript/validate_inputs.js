@@ -49,7 +49,7 @@ function isNumberr(input, error, name) {
 
 function removeErrorMessages(parent) {
   const inputs = Array.from(
-    parent.querySelectorAll('.column-direction > input[type="text"')
+    parent.querySelectorAll('.column-direction > input[type="text"]')
   )
 
   inputs.push(parent.querySelector('.column-direction > textarea'))

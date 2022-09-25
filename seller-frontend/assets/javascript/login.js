@@ -25,7 +25,11 @@ const login = async (data) => {
     console.log(user)
     localStorage.setItem('user', JSON.stringify(user))
 
-    window.location.href = './dashboard.html'
+    if (login_form.id == 'client') {
+      window.location.href = './client_homepage.html'
+    } else {
+      window.location.href = './dashboard.html'
+    }
   } else {
     //error
     error_message.classList.remove('hide')
