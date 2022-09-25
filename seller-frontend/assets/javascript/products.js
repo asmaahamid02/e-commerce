@@ -13,9 +13,9 @@ document.addEventListener('DOMContentLoaded', () => {
     edit_popup.style.display = 'none'
   })
 
-  const fillCategories = async () => {
+  const fillCategories = async (parent, id) => {
     const user_id = JSON.parse(localStorage.getItem('user')).id
-    const categories = document.querySelector('#category')
+    const categories = document.querySelector(id)
 
     const response = await axios.get(
       'http://localhost/e-commerce/ecommerce-server/api/get_categories_by_seller.php?id=' +
@@ -31,14 +31,13 @@ document.addEventListener('DOMContentLoaded', () => {
           </option>`
         categories.innerHTML += row
       }
-      document
-        .querySelector('#add-popup')
-        .querySelector('#category').selectedIndex = 0
+      document.querySelector(parent).querySelector(id).selectedIndex = 0
     } else {
       const row = `<option value="">${data.message}</option>`
       categories.innerHTML += row
     }
   }
+
   const resetForm = (parent) => {
     const status_message = parent.querySelector('.status-message')
     const profile_image = parent.querySelector('.profile-picture')
@@ -51,7 +50,7 @@ document.addEventListener('DOMContentLoaded', () => {
     for (const i of input_fields) {
       i.value = ''
     }
-    fillCategories()
+    fillCategories('#add-popup', '#category')
     parent.style.display = 'block'
   }
 
