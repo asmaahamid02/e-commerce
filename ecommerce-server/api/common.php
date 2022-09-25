@@ -125,4 +125,74 @@ class Common
         $connection->close();
         return $result->fetch_assoc()['id'];
     }
+
+    public function checkOpennedCart($client_id)
+    {
+        require("connection.php");
+        $sql = "SELECT id from carts where client_id = ? and purchased_at is null and is_deleted = 0";
+        $stmt = $connection->prepare($sql);
+        $stmt->bind_param('i', $client_id);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        $id = 0;
+        if ($result->num_rows > 0) {
+            $id = $result->fetch_assoc()['id'];
+        }
+        $stmt->close();
+        $connection->close();
+
+        return $id;
+    }
+
+    public function checkProduct($id)
+    {
+        require("connection.php");
+        $sql = "SELECT id from products where id = ? and is_deleted = 0";
+        $stmt = $connection->prepare($sql);
+        $stmt->bind_param('i', $id);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $stmt->close();
+        $connection->close();
+        return $result->num_rows == 1;
+    }
+
+    public function checkUserWithType($id, $type)
+    {
+        require("connection.php");
+        $sql = "SELECT users.id from users 
+                inner join user_types on users.type_id = user_types.id 
+                where users.id = ? and type= ? and is_deleted = 0";
+        $stmt = $connection->prepare($sql);
+        $stmt->bind_param('is', $id, $type);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $stmt->close();
+        $connection->close();
+        return $result->num_rows == 1;
+    }
+
+    public function checkProductInCart($cart_id, $product_id)
+    {
+        require("connection.php");
+        $sql = "SELECT cart_items.id,cart_items.quantity  from carts 
+                inner join cart_items on carts.id = cart_items.cart_id 
+                where carts.id = ? and cart_items.product_id = ? and carts.is_deleted = 0";
+        $stmt = $connection->prepare($sql);
+        $stmt->bind_param('ii', $cart_id, $product_id);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        $data = [];
+        if ($result->num_rows > 0) {
+            $row = $result->fetch_assoc();
+            $data['id'] = $row['id'];
+            $data['quantity'] = $row['quantity'];
+        }
+        $stmt->close();
+        $connection->close();
+
+        return $data;
+    }
 }
