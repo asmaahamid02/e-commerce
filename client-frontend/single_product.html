@@ -57,7 +57,7 @@
             </div>
 
             <div class="single-product-page-btns">
-                <button class="single-product-btn green-back">Add to cart</button>
+                <button class="single-product-btn green-back" id="add-to-cart">Add to cart</button>
                 <button class="single-product-btn white-back">Add to favorites</button>
             </div>
 
@@ -95,6 +95,24 @@
     </div>
     <!--! END Edit Profile Modal -->
 
+    <div id="alert">
+        <div class="confirmation-popup-container">
+            <div class="confirmation_alert">
+                <div class="title_confirmation_alert">
+                    <img class="red-alert-icon" src="./assets/images/alert_icon_red.png">
+                    <p>Confirm dialog</p>
+                </div>
+                <hr>
+                <div class="confirmation_alert_description">
+                    <p id="text-alert"> Are You sure you want to delete?</p>
+                </div>
+                <!-- <div class="confirmation_alert_btns">
+                    <button class="green" id="confirm-conf-popup">Confirm</button>
+                    <button class="red" id="cancel-conf-popup">Cancel</button>
+                </div> -->
+            </div>
+        </div>
+    </div>
 
     <!-- START footer -->
     <footer>
@@ -102,9 +120,11 @@
     </footer>
     <!-- END footer -->
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="./assets/javascript/alert_msg.js"></script>
     <script src="./assets/javascript/api/common.js"></script>
     <script src="./assets/javascript/api/single_product.js"></script>
     <script src="./assets/javascript/script.js"></script>
+    <script src="./assets/javascript/api/add_to_cart.js"></script>
 </body>
 
 </html>
