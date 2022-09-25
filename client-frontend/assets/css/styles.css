@@ -891,6 +891,15 @@ p {
   .card-checkout {
     width: 100%;
   }
+  .checkout{
+    border:2px solid blue;
+    width:100%;
+  }
+ .checkout-card{
+  border:2px solid red;
+
+    width:100%;
+  }
 }
 
 @media (max-width: 750px) {
@@ -969,5 +978,13 @@ p {
 
   .modal {
     width: 100%;
+  }
+  .checkout-button{
+    width:100%;
+  }
+
+  .saved-product-img img{
+    width:100px;
+    height:150px;
   }
 }
