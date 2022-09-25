@@ -4,7 +4,16 @@ function createCard(title, description, price, image, id){
     const newCard = document.createElement('div')
     newCard.classList.add('card')
     newCard.dataset.id = id
-    newCard.addEventListener('click', () =>{
+    newCard.addEventListener('click', (event) =>{
+        console.log(event.target.nodeName)
+        console.log(event.target.parentElement.parentElement.parentElement)
+        if(event.target.nodeName == 'H6' || event.target.nodeName == 'I'){
+            addViewers(event.target.parentElement.parentElement.dataset.id)
+        }else if(event.target.nodeName == 'SPAN'){
+            addViewers(event.target.parentElement.parentElement.parentElement.dataset.id)
+        }else{
+            addViewers(event.target.parentElement.dataset.id)
+        }
         sessionStorage.setItem('currentProduct', newCard.dataset.id)
         window.location.href = 'single_product.html'
     })
@@ -33,4 +42,10 @@ function createCard(title, description, price, image, id){
     newCard.appendChild(newElement)
 
     return newCard
+}
+
+async function addViewers(id){
+    const data = new FormData()
+    data.append('product_id', id)
+    const response = await axios.post('http://localhost/e-commerce/ecommerce-server/api/increment_views.php', data)
 }
