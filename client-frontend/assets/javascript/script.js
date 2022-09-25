@@ -42,7 +42,7 @@ const data = new FormData();
 //When the Save button is clicked
 modalSave.addEventListener('click', function () {
     modalBg.classList.remove('bg-active');
-    data.append('client_id', 1);
+    data.append('client_id', client_id);
     data.append('edited_name', client_name_input.value);
     data.append('edited_username', client_username_input.value);
     data.append('edited_email', client_email_input.value);
