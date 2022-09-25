@@ -7,7 +7,7 @@ async function getProductInfo(id) {
       id
   )
   const data = response.data.data[0]
-  createProduct(data.title, data.price, data.name, data.description, i.image)
+  createProduct(data.title, data.price, data.name, data.description, data.image)
 }
 
 function createProduct(title, price, seller, description, image) {

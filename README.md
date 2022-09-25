@@ -30,10 +30,14 @@
 </ul>
 
 <h3>Preview</h3>
+<h4>Client</h4>
 <img src="./images/1.png">
 <img src="./images/2.png">
 <img src="./images/3.png">
+<img src="./images/12.png">
+
+<h4>Admin/Seller</h4>
 <img src="./images/4.png">
-<img src="./images/6.png">
 <img src="./images/7.png">
 <img src="./images/10.png">
+<img src="./images/11.png">
