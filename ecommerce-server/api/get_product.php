@@ -14,7 +14,7 @@ if (isset($_GET['id'])) {
 
     $id = $_GET['id'];
 
-    $sql = 'SELECT products.*, categories.category from products 
+    $sql = 'SELECT products.*, categories.category, categories.id as cat_id from products 
     inner join categories on categories.id = products.categorie_id
     inner join users on users.id = categories.seller_id
     where products.id = ? and products.is_deleted = 0';
