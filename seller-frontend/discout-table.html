@@ -6,65 +6,66 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Discount Table</title>
-    <link rel="stylesheet" href="./assets/css/discount-table.css">
+    <!-- <link rel="stylesheet" href="./assets/css/discount-table.css"> -->
+    <link rel="stylesheet" href="../admin-electron/src/css/reset.css">
+    <link rel="stylesheet" href="../admin-electron/src/css/list.css">
+    <link rel="stylesheet" href="../admin-electron/src/css/styles.css">
 </head>
 
 <body>
-    <!-- start of dashboard menu -->
-    <section class="sidebar">
-        <div class="profile">
-            <img src="../admin-electron/src/images/svg/profile-svgrepo-com.svg" alt="">
-            <div>
-                <p>Name</p>
-                <a>Username</a>
-            </div>
-        </div>
-        <div class="sidebar-btn">
-            <button id="categories">Categories</button>
-        </div>
-        <div class="sidebar-btn">
-            <button id="products">Products</button>
-        </div>
-        <div class="sidebar-btn">
-            <button id="discounts">Discounts</button>
-        </div>
-        <div class="sidebar-btn">
-            <button id="stats">Statistics</button>
-        </div>
-    </section>
-    <!--end of dashboard menu -->
-    <!-- start of content section -->
+    <!-- start of content -->
     <section class="body-part">
-        <!-- start of top bar -->
         <div class="top-bar">
-            Discounts
-        </div>
-        <!-- end of top bar -->
-        <!-- start of content -->
-        <div class="content">
-            <div class="add-dis">
-                <button id="add-dis-btn"><span><i class="fa fa-plus"></i></span> Add discount code</button>
+            <div class="right">
+                <span><img class="header-icon" src="../admin-electron/src/images/svg/amaze-svgrepo-com.svg"></span>
+                <span id="nav-title">Discounts</span>
             </div>
-            <div>
-                <table>
-                    <tr>
-                        <th>Discount Code</th>
-                        <th>Discount percentage %</th>
-                        <th>Expiration date</th>
-                    </tr>
-                    <tr>
-                        <td>MAK2002</td>
-                        <td>15%</td>
-                        <td>22/october/2022</td>
-                    </tr>
-                </table>
-            </div>
+            <button id="add-button" class="btn btn-head"><img
+                    src="../admin-electron/src/images/svg/add-svgrepo-com.svg">Add
+                Discount</button>
         </div>
-        <!-- end of content -->
+        <table class="sellers-table">
+            <thead>
+                <tr>
+                    <th>CODE</th>
+                    <th>%</th>
+                    <th>EXPIRED</th>
+                </tr>
+            </thead>
+            <tbody id="table-body">
+
+            </tbody>
+
+
+        </table>
     </section>
-    <!-- end of content section -->
+    <!-- end of content -->
+    <section class="background" id="add-popup">
+        <div class="add-form addd">
+            <span class="close" id="add-close">X</span>
+            <h1>Add Discount</h1>
+
+            <div>
+                <div style="width:100%">
+                    <div class="column-direction">
+                        <span>Code:</span>
+                        <input id="name-input" type="text">
+                        <span class="error" id="name-error"></span>
+                    </div>
+                    <div class="column-direction">
+                        <span>Percentage:</span>
+                        <input id="username-input" type="text">
+                        <span class="error" id="username-error"></span>
+                    </div>
+                </div>
+
+            </div>
+            <button class="buttons other-background add-btnn">ADD DISCOUNT</button>
+        </div>
+    </section>
+
     <!-- start of adding discout section -->
-    <form class="discount-form" id="discount-form">
+    <!-- <form class="discount-form" id="discount-form">
         <div class="modal" id="dis-modal">
             <div>
                 <h1>Discount info</h1>
@@ -84,8 +85,9 @@
                 <button class="add-dis" id="add-btn">Add discount</button>
             </div>
         </div>
-    </form>
+    </form> -->
     <!-- end of adding discount section -->
+    <!-- <script src="./assets/javascript/discount.js"></script> -->
     <script src="./assets/javascript/discount.js"></script>
 </body>
 

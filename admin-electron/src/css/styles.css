@@ -78,7 +78,9 @@
   width: 100%;
 }
 
-input {
+input,
+textarea,
+select {
   width: 99%;
   border-radius: 15px;
   height: 40px;
@@ -87,6 +89,9 @@ input {
   font-size: 18px;
 }
 
+textarea {
+  height: 80px;
+}
 .column-direction + span {
   color: #808080;
 }
@@ -115,7 +120,7 @@ input {
   background-color: #323246;
   font-size: 23px;
   padding: 12px 16px;
-  width: 200px;
+  /* width: 200px; */
   align-self: center;
 }
 
@@ -133,7 +138,7 @@ input[type='file'] {
   color: white;
 }
 
-#edit-file-input-text{
+#edit-file-input-text {
   color: white;
 }
 
@@ -280,4 +285,12 @@ input[type='file'] {
 
 #text-alert {
   text-align: center;
+}
+
+.special {
+  justify-content: center !important;
+}
+
+.special > img {
+  margin-bottom: 10px;
 }
