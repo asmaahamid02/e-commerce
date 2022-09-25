@@ -23,20 +23,18 @@ if (isset($_POST["user_indentifier"], $_POST["password"])) {
 
     // $hashedpass = $password;
     $query = $connection->prepare(
-        "
-        SELECT users.id, users.email, users.username 
-        FROM users 
-        WHERE (username=? OR email=?) AND password=? "
+        "SELECT * FROM users where username = ? or email = ? and password = ?"
     );
-
     $query->bind_param('sss', $user_indentifier, $user_indentifier, $hashedpass);
-    $query->execute();
+    $result = $query->execute() or die($connection->error);
+    // print($result);
     $array = $query->get_result();
 
     // die('ff' . $array->num_rows);
     $hasValidCredentials  = [];
-    while ($a = $array->fetch_assoc()) {
-        $hasValidCredentials[]  = $a;
+    if ($array->num_rows > 0) {
+        $hasValidCredentials[]  = $array->fetch_assoc();
+        // print_r($hasValidCredentials);
     }
 
 
