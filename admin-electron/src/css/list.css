@@ -67,3 +67,18 @@ table tr:nth-child(odd) td {
   filter: invert(22%) sepia(90%) saturate(7400%) hue-rotate(10deg)
     brightness(96%) contrast(110%);
 }
+
+.form-data {
+  display: flex;
+  align-items: center;
+}
+
+.form-data > input {
+  width: 50%;
+  border: none;
+  height: 40px;
+  margin-right: 10px;
+  border-radius: 10px;
+  outline: none;
+  padding: 10px 20px;
+}
