@@ -13,6 +13,15 @@ async function getSomeProducts(){
     return data
 }
 
+async function getAllProducts(){
+    const response = await axios.get('http://localhost/e-commerce/ecommerce-server/api/get_all_products.php')
+    const data = response.data.data
+    for(const i of data){
+        cardsContainer.appendChild(createCard(i.title, i.description, i.price, 'dummy_product_pic.jpg', i.id))
+    }
+    return data
+}
+
 // created an html element containing product information
 // adding the id of each product in the card dataset for further utilisation
 function createCard(title, description, price, image, id){
