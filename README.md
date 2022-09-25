@@ -6,13 +6,13 @@
 <li>Jessy Matta</li>
 <li>Peter Saba</li>
 </ul>
-<hr>
+
 <h2 style="color:#64c5b1">How To Run</h2>
 
 <ul>
 <li>Admin Desktop
 <ul>
-<li>Navigate to admin-desktop folder</li>
+<li>Navigate to admin-electron folder</li>
 <li>run "npm install" command</li>
 <li>run "npm run start" command</li>
 </ul>
