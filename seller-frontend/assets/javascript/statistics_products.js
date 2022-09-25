@@ -4,7 +4,7 @@ const data = [
   // { user: 'Asmaa Hamid', label: 'week3', revenue: 40 },
   // { user: 'Asmaa Hamid', label: 'week4', revenue: 60 },
 ]
-const user_id = 2
+const user_id = JSON.parse(localStorage.getItem('user')).id
 const getRevenueWeek = async () => {
   // data.push({ user: user_id, label: 'Last week', revenue: 50000 })
 
