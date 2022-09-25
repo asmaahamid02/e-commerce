@@ -47,28 +47,25 @@ function isNumberr(input, error, name) {
   }
 }
 
-const inputs = Array.from(
-  document
-    .querySelector('#add-popup')
-    .querySelectorAll('.column-direction > input[type="text"')
-)
+function removeErrorMessages(parent) {
+  const inputs = Array.from(
+    parent.querySelectorAll('.column-direction > input[type="text"')
+  )
 
-inputs.push(
-  document
-    .querySelector('#add-popup')
-    .querySelector('.column-direction > textarea')
-)
+  inputs.push(parent.querySelector('.column-direction > textarea'))
 
-const errors = Array.from(
-  document
-    .querySelector('#add-popup')
-    .querySelectorAll('.column-direction > span:last-child')
-)
-console.log(errors)
-for (let i = 0; i < inputs.length; i++) {
-  inputs[i].addEventListener('input', () => {
-    errors[i].textContent = ''
-  })
+  const errors = Array.from(
+    parent.querySelectorAll('.column-direction > span:last-child')
+  )
+  console.log(errors)
+  for (let i = 0; i < inputs.length; i++) {
+    inputs[i].addEventListener('input', () => {
+      errors[i].textContent = ''
+    })
+  }
+
+  console.log(inputs)
 }
 
-console.log(inputs)
+removeErrorMessages(document.querySelector('#add-popup'))
+removeErrorMessages(document.querySelector('#edit-popup'))
