@@ -6,7 +6,7 @@ const get_products_api =
 const delete_product_api =
   'http://localhost/e-commerce/ecommerce-server/api/delete_product.php?id='
 const get_product_api =
-  'http://localhost/e-commerce/ecommerce-server/api/get_product_info.php?id='
+  'http://localhost/e-commerce/ecommerce-server/api/get_product.php?id='
 
 const config = {}
 
@@ -47,6 +47,31 @@ async function deleteProduct(id) {
   )
 }
 
+const fillCategories = async (parent, id) => {
+  const user_id = JSON.parse(localStorage.getItem('user')).id
+  const categories = document.querySelector(id)
+
+  const response = await axios.get(
+    'http://localhost/e-commerce/ecommerce-server/api/get_categories_by_seller.php?id=' +
+      user_id
+  )
+  const data = response.data
+  console.log(data)
+  if (data.status == 1 && data.data != null) {
+    categories.innerHTML = ''
+    for (const category of data.data) {
+      const row = `<option value="${category.category_id}">
+          ${category.category}
+          </option>`
+      categories.innerHTML += row
+    }
+    document.querySelector(parent).querySelector(id).selectedIndex = 0
+  } else {
+    const row = `<option value="">${data.message}</option>`
+    categories.innerHTML += row
+  }
+}
+
 //get user data
 async function getProduct(id) {
   await axios.get(get_product_api + id).then(
@@ -55,21 +80,28 @@ async function getProduct(id) {
       if (response.data.status) {
         //success
         console.log(response.data.data[0])
-        edit_input_username.value = response.data.data[0].username
-        edit_input_email.value = response.data.data[0].email
-        edit_input_name.value = response.data.data[0].name
+        fillCategories('#edit-popup', '#edit-category')
+        edit_input_title.value = response.data.data[0].title
+        edit_input_price.value = response.data.data[0].price
+        edit_input_qty.value = response.data.data[0].quantity
+        edit_input_description.textContent = response.data.data[0].description
 
-        console.log(response.data.data[0].profile_picture)
-        if (response.data.data[0].profile_picture) {
+        console.log(response.data.data[0].image)
+        if (response.data.data[0].image) {
           console.log(edit_popup.querySelector('#edit-image-element').src)
           edit_popup.querySelector(
             '#edit-image-element'
-          ).src = `../../src/images/sellers-profiles/${response.data.data[0].profile_picture}`
+          ).src = `./assets/images/products/${response.data.data[0].image}`
           console.log(edit_popup.querySelector('#edit-image-element').src)
+        } else {
+          edit_popup.querySelector(
+            '#edit-image-element'
+          ).src = `./assets/images/blanck.png`
         }
         resetForm(edit_popup, id)
       } else {
         //error
+        alert(response.data.message)
       }
     },
     (error) => {

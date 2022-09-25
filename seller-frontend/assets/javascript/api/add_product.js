@@ -35,9 +35,8 @@ submit.addEventListener('click', () => {
       data.append('picture', base64_image)
     }
 
-    console.log(data)
+    // console.log(data)
     addProduct(data)
-    // addSeller(data)
   } else {
     console.log('bad format')
   }
