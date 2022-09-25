@@ -1,5 +1,5 @@
 const cardsContainer = document.querySelector('.product_cards_container')
-getSomeProducts()
+getAllProducts()
 
 async function getSomeProducts(){
     const response = await axios.get('http://localhost/e-commerce/ecommerce-server/api/get_all_products.php')
@@ -27,7 +27,11 @@ async function getAllProducts(){
 function createCard(title, description, price, image, id){
     const newCard = document.createElement('div')
     newCard.classList.add('card')
-    newCard.dataset.index = id
+    newCard.dataset.id = id
+    newCard.addEventListener('click', () =>{
+        sessionStorage.setItem('currentProduct', newCard.dataset.id)
+        window.location.href = 'single_product.html'
+    })
 
     let newElement = document.createElement('img')
     newElement.src = 'assets/images/products/' + image
