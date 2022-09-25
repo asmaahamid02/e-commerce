@@ -6,7 +6,7 @@ header('Content-Type: application/json');
 
 $host = "localhost";
 $db_user = "root";
-$db_pass = '';
+$db_pass = '1234';
 $db_name = "ecommerce_db";
 
 $connection = new mysqli($host, $db_user, $db_pass, $db_name);
