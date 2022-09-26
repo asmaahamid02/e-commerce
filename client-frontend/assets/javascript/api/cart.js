@@ -1,9 +1,11 @@
 const cart_container = document.querySelector('.card-checkout')
+const empty_cart = document.querySelector('.empty-cart')
+const checkoutCont = document.querySelector('.checkout')
+
 const get_cartItems_api =
   'http://localhost/e-commerce/ecommerce-server/api/get_items_cart.php?id=' +
   JSON.parse(localStorage.getItem('user')).id
 
-const checkoutCont = document.querySelector('.checkout')
 const checkout_total = document.querySelector('.checkout-total')
 const checkout_subtotal = document.querySelector('.checkout-subtotal')
 console.log(cart_container)
@@ -51,9 +53,9 @@ const getCartItems = async () => {
     <p>$<span>${total}</span></p>`
     checkout_subtotal.innerHTML = subtotal_cont
   } else {
-    cart_container.innerHTML +=
-      '<div class="saved-product">You bag is empty!</div>'
-    checkoutCont.style.display = 'none'
+    cart_container.classList.add('hidden')
+    checkoutCont.classList.add('hidden')
+    empty_cart.classList.remove('hidden')
     // window.location.href = './client_homepage.html'
   }
 }
