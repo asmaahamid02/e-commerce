@@ -892,12 +892,9 @@ p {
     width: 100%;
   }
   .checkout {
-    border: 2px solid blue;
     width: 100%;
   }
   .checkout-card {
-    border: 2px solid red;
-
     width: 100%;
   }
 }

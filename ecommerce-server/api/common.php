@@ -217,4 +217,20 @@ class Common
 
         return $data;
     }
+
+    public function checkProductInFav($id, $client_id)
+    {
+        require("connection.php");
+        $sql = "SELECT products.id from products
+                inner join favorite_products on favorite_products.product_id = products.id
+                inner join users on favorite_products.client_id = users.id
+                where favorite_products.client_id= ? and favorite_products.product_id = ? and products.is_deleted=0 and users.is_deleted = 0";
+        $stmt = $connection->prepare($sql);
+        $stmt->bind_param('ii', $client_id, $id);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $stmt->close();
+        $connection->close();
+        return $result->num_rows > 0;
+    }
 }

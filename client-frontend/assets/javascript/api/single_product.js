@@ -1,5 +1,12 @@
 const currentId = sessionStorage.getItem('currentProduct')
+
+const clientId = JSON.parse(localStorage.getItem('user')).id
+
 getProductInfo(currentId)
+
+if (performance.getEntriesByType('navigation')[0].type == 'navigate') {
+  addViewers(currentId)
+}
 
 async function getProductInfo(id) {
   const response = await axios.get(
@@ -36,10 +43,60 @@ function createProduct(title, price, seller, description, image) {
 
   newElement = document.createElement('div')
   newElement.classList.add('single-product-page-btns')
-  newElement.innerHTML =
-    '<button class="single-product-btn green-back">Add to cart</button>' +
-    '<button class="single-product-btn white-back">Add to favorites</button>'
+  let buttonElement = document.createElement('button')
+  buttonElement.classList.add('single-product-btn')
+  buttonElement.classList.add('green-back')
+  buttonElement.classList.add('add-to-cart')
+  buttonElement.textContent = 'Add to cart'
+
+  buttonElement.addEventListener('click', async () => {
+    const response = await axios.get(
+      'http://localhost/e-commerce/ecommerce-server/api/add_items_to_cart.php?client_id=' +
+        clientId +
+        '&product_id=' +
+        currentId
+    )
+    const res = response.data
+    if (res.status) {
+      triggerAlert(res.message)
+      setTimeout(function () {
+        window.location.href = './checkout.html'
+      }, 1500)
+    } else {
+      triggerAlert(res.message)
+      setTimeout(function () {
+        window.location.reload()
+      }, 1500)
+    }
+  })
+  newElement.appendChild(buttonElement)
+  buttonElement = document.createElement('button')
+  buttonElement.classList.add('single-product-btn')
+  buttonElement.classList.add('white-back')
+  buttonElement.textContent = 'Add to favorites'
+  buttonElement.addEventListener('click', async () => {
+    const response = await axios.get(
+      'http://localhost/e-commerce/ecommerce-server/api/add_to_favorites.php?client_id=' +
+        clientId +
+        '&product_id=' +
+        currentId
+    )
+    const res = response.data
+    if (res.status) {
+      triggerAlert(res.message)
+      setTimeout(function () {
+        window.location.href = './client_saved_items.html'
+      }, 1500)
+    } else {
+      triggerAlert(res.message)
+      setTimeout(function () {
+        window.location.reload()
+      }, 1500)
+    }
+  })
+  newElement.appendChild(buttonElement)
   left.appendChild(newElement)
+
   productContainer.appendChild(left)
 
   newElement = document.createElement('div')

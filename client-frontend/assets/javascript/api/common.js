@@ -1,21 +1,14 @@
 // created an html element containing product information
 // adding the id of each product in the card dataset for further utilisation
 
-function createCard(title, description, price, image, id){
-    const newCard = document.createElement('div')
-    newCard.classList.add('card')
-    newCard.dataset.id = id
-    newCard.addEventListener('click', (event) =>{
-        if(event.target.nodeName == 'H6' || event.target.nodeName == 'I'){
-            addViewers(event.target.parentElement.parentElement.dataset.id)
-        }else if(event.target.nodeName == 'SPAN'){
-            addViewers(event.target.parentElement.parentElement.parentElement.dataset.id)
-        }else{
-            addViewers(event.target.parentElement.dataset.id)
-        }
-        sessionStorage.setItem('currentProduct', newCard.dataset.id)
-        window.location.href = 'single_product.html'
-    })
+function createCard(title, description, price, image, id) {
+  const newCard = document.createElement('div')
+  newCard.classList.add('card')
+  newCard.dataset.id = id
+  newCard.addEventListener('click', () => {
+    sessionStorage.setItem('currentProduct', newCard.dataset.id)
+    window.location.href = 'single_product.html'
+  })
 
   let newElement = document.createElement('img')
   newElement.src = '../seller-frontend/assets/images/products/' + image
@@ -42,12 +35,14 @@ function createCard(title, description, price, image, id){
   newElement.classList.add('buy')
   newElement.innerText = 'Buy now'
   newCard.appendChild(newElement)
-    return newCard
+  return newCard
 }
 
-async function addViewers(id){
-    const data = new FormData()
-    data.append('product_id', id)
-    const response = await axios.post('http://localhost/e-commerce/ecommerce-server/api/increment_views.php', data)
+async function addViewers(id) {
+  const data = new FormData()
+  data.append('product_id', id)
+  const response = await axios.post(
+    'http://localhost/e-commerce/ecommerce-server/api/increment_views.php',
+    data
+  )
 }
-
