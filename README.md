@@ -35,6 +35,8 @@
 <img src="./images/2.PNG">
 <img src="./images/3.PNG">
 <img src="./images/12.PNG">
+<img src="./images/5.PNG">
+<img src="./images/8.PNG">
 
 <h4>Admin/Seller</h4>
 <img src="./images/4.PNG">

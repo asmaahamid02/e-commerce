@@ -111,17 +111,17 @@ textarea {
 }
 
 .green-background {
-  background-color: #64c5b1;
-  font-size: 15px;
-}
-
-.other-background {
   margin-top: 13px;
   background-color: #323246;
-  font-size: 23px;
+  font-size: 15px;
   padding: 12px 16px;
   /* width: 200px; */
   align-self: center;
+}
+
+.other-background {
+  background-color: #64c5b1;
+  font-size: 23px;
 }
 
 input[type='file'] {

@@ -7,9 +7,9 @@ header('Access-Control-Allow-Headers: Origin, Content-Type, Accept, Authorizatio
 //PHP to get all products info
 $common = new Common();
 
-if(!isset($_GET['id'])){
+if (!isset($_GET['id'])) {
     $response = $common->getRepsonse(0, null, "no id is given");
-}else{
+} else {
     $id = $_GET['id'];
     $query = $connection->prepare('SELECT p.id, p.title, p.price, p.description, p.image
                                     FROM products AS p
@@ -21,13 +21,14 @@ if(!isset($_GET['id'])){
                                                         WHERE u.id=? AND u.id=w.client_id AND w.purchased_at IS NULL AND w.id=wi.wishlist_id)
                                     AND p.id NOT IN(SELECT fp.product_id
                                                         FROM users AS u, favorite_products AS fp
-                                                        WHERE u.id=? AND u.id=fp.client_id)');
+                                                        WHERE u.id=? AND u.id=fp.client_id)
+                                    AND p.is_deleted = 0');
     $query->bind_param('iii', $id, $id, $id);
     $query->execute();
     $array = $query->get_result();
-    
+
     $response = [];
-    
+
     if ($array->num_rows > 0) {
         while ($a = $array->fetch_assoc()) {
             $response['data'][] = $a;

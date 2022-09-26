@@ -15,14 +15,6 @@
     <nav>
         <input type="checkbox" name="" id="checkbox_burger_menu">
         <div class="logo"><a href="./client_homepage.html"><img src="./assets/images/logo.png"></a></div>
-
-        <div class="search-box">
-            <form action="">
-                <input type="text" name="search" id="search" placeholder="Search for items/products">
-                <button class="search-icon" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
-            </form>
-        </div>
-
         <ul id="burger-menu-ul">
             <li id="edit-profile-icon"><a href="#"><i class="fa-solid fa-user"></i></a></li>
             <li><a href="./client_saved_items.html"><i class="fa-regular fa-heart"></i></a></li>
@@ -38,26 +30,28 @@
     </nav>
     <!-- END Nav bar section -->
 
-
-
-
-
     <!-- START page title -->
     <div class="pagetitle">
         <h1>PRODUCTS</h1>
     </div>
     <!-- END page title -->
 
-
     <!-- START Products section -->
     <!-- To append to the below class in js when adding products -->
     <div class="checkout-container">
         <!-- The below div will contain the products added to card -->
-        <div class="card-checkout">
+
+        <div class="empty-cart hidden">
+
+            <p>Cart is empty</p>
+            <a href="./client_homepage.html">Add Products</a>
+        </div>
+        <div class="card-checkout hidden">
 
             <div class="pagetitle">
                 <h1>MY BAG</h1>
             </div>
+
 
             <!-- ! START another card item used for testing -->
             <div class="saved-product">
@@ -85,7 +79,7 @@
         </div>
 
         <!-- Checkout div -->
-        <div class="checkout">
+        <div class="checkout hidden">
             <div class="pagetitle">
                 <h1> CHECKOUT</h1>
             </div>
@@ -169,6 +163,7 @@
         <p>Copyright &copy; 2022 CONQUER</p>
     </footer> -->
     <!-- END footer -->
+    <script src="./assets/javascript/api/auth.js"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="./assets/javascript/api/cart.js"></script>
     <script src="./assets/javascript/checkout.js"></script>

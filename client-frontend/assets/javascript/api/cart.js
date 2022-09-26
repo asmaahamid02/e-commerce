@@ -1,12 +1,13 @@
 const cart_container = document.querySelector('.card-checkout')
+const empty_cart = document.querySelector('.empty-cart')
+const checkoutCont = document.querySelector('.checkout')
+
 const get_cartItems_api =
   'http://localhost/e-commerce/ecommerce-server/api/get_items_cart.php?id=' +
   JSON.parse(localStorage.getItem('user')).id
 
-const checkoutCont = document.querySelector('.checkout')
 const checkout_total = document.querySelector('.checkout-total')
 const checkout_subtotal = document.querySelector('.checkout-subtotal')
-console.log(cart_container)
 
 const header = `<div class="pagetitle">
 <h1>MY BAG</h1>
@@ -16,12 +17,12 @@ let total = 0
 const getCartItems = async () => {
   const response = await axios.get(get_cartItems_api)
   const data = response.data
-  console.log(response.data)
   if (data.status == 1 && data.data != null) {
     // console.log(data)
 
     for (const product of data.data) {
       total += product.price * product.quantity
+      cart_container.innerHTML = ''
       const row = `<div class="saved-product">
       <div class="saved-product-img">
           <img src="../seller-frontend/assets/images/products/${product.image}">
@@ -41,6 +42,7 @@ const getCartItems = async () => {
   </div>`
       cart_container.innerHTML += row
     }
+    cart_container.classList.remove('hidden')
 
     //checkout
     const total_cont = `<p>Total</p>
@@ -50,10 +52,12 @@ const getCartItems = async () => {
     const subtotal_cont = ` <p>Total</p>
     <p>$<span>${total}</span></p>`
     checkout_subtotal.innerHTML = subtotal_cont
+
+    checkoutCont.classList.remove('hidden')
   } else {
-    cart_container.innerHTML +=
-      '<div class="saved-product">You bag is empty!</div>'
-    checkoutCont.style.display = 'none'
+    cart_container.classList.add('hidden')
+    checkoutCont.classList.add('hidden')
+    empty_cart.classList.remove('hidden')
     // window.location.href = './client_homepage.html'
   }
 }
