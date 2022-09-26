@@ -12,7 +12,7 @@
 <ul>
 <li>Admin Desktop
 <ul>
-<li>Navigate to admin-electron/dashboard.html folder</li>
+<li>Navigate to admin-electron folder</li>
 <li>run "npm install" command</li>
 <li>run "npm run start" command</li>
 </ul>
