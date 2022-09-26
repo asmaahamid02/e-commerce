@@ -31,13 +31,15 @@
 
 <h3>Preview</h3>
 <h4>Client</h4>
-<img src="./images/1.png">
-<img src="./images/2.png">
-<img src="./images/3.png">
-<img src="./images/12.png">
+<img src="./images/1.PNG">
+<img src="./images/2.PNG">
+<img src="./images/3.PNG">
+<img src="./images/12.PNG">
+<img src="./images/5.PNG">
+<img src="./images/8.PNG">
 
 <h4>Admin/Seller</h4>
-<img src="./images/4.png">
-<img src="./images/7.png">
-<img src="./images/10.png">
-<img src="./images/11.png">
+<img src="./images/4.PNG">
+<img src="./images/7.PNG">
+<img src="./images/10.PNG">
+<img src="./images/11.PNG">
