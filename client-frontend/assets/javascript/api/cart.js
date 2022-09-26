@@ -43,6 +43,7 @@ const getCartItems = async () => {
   </div>`
       cart_container.innerHTML += row
     }
+    cart_container.classList.remove('hidden')
 
     //checkout
     const total_cont = `<p>Total</p>
@@ -52,6 +53,8 @@ const getCartItems = async () => {
     const subtotal_cont = ` <p>Total</p>
     <p>$<span>${total}</span></p>`
     checkout_subtotal.innerHTML = subtotal_cont
+
+    checkoutCont.classList.remove('hidden')
   } else {
     cart_container.classList.add('hidden')
     checkoutCont.classList.add('hidden')
